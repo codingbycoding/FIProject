@@ -1,6 +1,8 @@
 ﻿using UnityEngine.Networking;
 
 
+
+// All Custom Messages definitions go here 
 public class CustomMessage { 
     
 }

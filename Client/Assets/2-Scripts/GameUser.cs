@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 
+// GameUser exists on game server holds each game user's data.
 public class GameUser
 {
     private string userName;

@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
+// GameServer only exists on game server just like GameClient only exists on game client.
+// 
 public class GameServer : BaseNetworkGameManager {
     public GameObject[] avatarPrefabs;
 

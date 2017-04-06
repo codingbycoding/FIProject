@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// DataMaster is for share the data among different objects
 public class DataMaster : MonoBehaviour
 {
 

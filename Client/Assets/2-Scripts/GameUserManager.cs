@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+
+// GameUserManager only exists on game server, manages all the active game users 
 public class GameUserManager
 {
     private Dictionary<NetworkConnection, GameUser> userDictionary;

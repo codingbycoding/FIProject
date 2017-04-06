@@ -5,6 +5,9 @@ using System.Text;
 
 using es.upm.fi.rmi;
 
+
+// ChatManager exists between game logic and database by interact with OnlineService using Ice.
+// Once client connected to OnlineService, chat service becomes aviable.
 public class ChatManager
 {
     private ChatServicePrx chatPrx;

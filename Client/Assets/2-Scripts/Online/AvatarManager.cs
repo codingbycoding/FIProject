@@ -7,6 +7,7 @@ using UnityEngine;
 
 using es.upm.fi.rmi;
 
+// AvatarManager exists between game logic and database by interact with OnlineService using Ice.
 public class AvatarManager
 {
     private static AvatarManager _instance = null;

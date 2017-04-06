@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+// RestoreButton attachs to a button to restore player's last state(position, rotation...)
 public class RestoreButton : MonoBehaviour {
 
 	// Use this for initialization

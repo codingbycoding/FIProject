@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 
+
+// Make a panel draggable
 public class DragPanel : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
 

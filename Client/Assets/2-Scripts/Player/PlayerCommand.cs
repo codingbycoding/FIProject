@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+
+//PlayerCommand holds all the commands that player could invoke on the server
 public class PlayerCommand : NetworkBehaviour {
 
 	// Use this for initialization

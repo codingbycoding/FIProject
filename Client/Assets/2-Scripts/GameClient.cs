@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
+
+// GameClient only exists on game client just like GameServer only exists on game server.
 public class GameClient : BaseNetworkGameManager {
 
     private AsyncOperation asyncSceneLoad;

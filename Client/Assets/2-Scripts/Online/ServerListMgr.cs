@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using es.upm.fi.rmi;
 using System;
 
+
+// ServerListMgr manages the servers info received from Online Service
 public class ServerListMgr : MonoBehaviour {
     public Button servEntryButtonFab;
     private GameClient gameClient;

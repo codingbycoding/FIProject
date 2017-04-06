@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 using es.upm.fi.rmi;
 
+// ChatUI process the online chat message at UI layer.
 public class ChatUI : MonoBehaviour {
     private Text text = null;
     private InputField inputField = null;

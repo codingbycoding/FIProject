@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 
 
+// Build Game Client and Server by Editor's menu
 public class FIBuild
 {
 

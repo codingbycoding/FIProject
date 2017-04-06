@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// When item iconized, the item will become as a item icon in player's inventory panel.
 public class ItemSlot : MonoBehaviour {
 
     // Use this for initialization

@@ -6,6 +6,9 @@ using es.upm.fi.rmi;
 
 using UnityEngine;
 
+
+// OnlineManager is the communication tunnel of Ice.
+// The connection to Online Service establish from here.
 public class OnlineManager
 {
     private static OnlineManager instance = null;

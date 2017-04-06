@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 using es.upm.fi.rmi;
 using Ice;
 
+
+// ClientNotification is used to receive message from Online Service 
+// All the messages that Online Service actively send to Client will be notifications
 public class ClientNotification : MessageNotificationDisp_
 {
     private GameClient gameClient;
