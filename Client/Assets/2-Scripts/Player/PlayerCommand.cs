@@ -55,4 +55,12 @@ public class PlayerCommand : NetworkBehaviour {
             transform.position.y,
             transform.position.z));
     }
+
+    [Command]
+    public void CmdPickItem(NetworkInstanceId netId)
+    {
+        GameObject objItem = NetworkServer.FindLocalObject(netId);
+        Item item = objItem.GetComponent<Item>();
+        item.RpcIconize();
+    }
 }

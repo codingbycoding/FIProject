@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+[RequireComponent(typeof(NetworkIdentity))]
 public class Item : NetworkBehaviour {
 
     public string iconName;
@@ -14,13 +15,12 @@ public class Item : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-        isIconize = false;
-
+        isIconize = false;        
     }
 
     public override void OnStartServer()
     {
-        NetworkServer.Spawn(gameObject);
+        NetworkServer.Spawn(gameObject);        
     }
 
     // Update is called once per frame
@@ -31,12 +31,16 @@ public class Item : NetworkBehaviour {
 
     private void OnMouseDown()
     {
-        PickItem();
+        PickItem();        
     }
 
     private void PickItem()
     {
-        Iconize();
+        GameObject gamePlayer = DataMaster.GamePlayer;
+        PlayerCommand playerCommand = gamePlayer.GetComponent<PlayerCommand>();
+        playerCommand.CmdPickItem(netId);
+
+        //Iconize();
         InventoryManager.GetInstance().AddItem(this);
     }
 
@@ -46,7 +50,8 @@ public class Item : NetworkBehaviour {
         InventoryManager.GetInstance().RemoveItem(this);
     }
 
-    public void Iconize()
+    [ClientRpc]
+    public void RpcIconize()
     {
         this.gameObject.GetComponent<MeshRenderer>().enabled = false;
         this.gameObject.GetComponent<Collider>().enabled = false;
@@ -59,6 +64,22 @@ public class Item : NetworkBehaviour {
             itemSlot.GetComponent<ItemSlot>().enabled = true;
         }
        
+        isIconize = true;
+    }
+
+    public void Iconize()
+    {
+        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        this.gameObject.GetComponent<Collider>().enabled = false;
+        this.gameObject.GetComponent<Item>().enabled = false;
+
+        this.transform.localPosition = Vector3.zero;
+
+        if (null != itemSlot)
+        {
+            itemSlot.GetComponent<ItemSlot>().enabled = true;
+        }
+
         isIconize = true;
     }
 
