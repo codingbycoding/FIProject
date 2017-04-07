@@ -15,12 +15,12 @@ public class Item : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-        isIconize = false;        
+        isIconize = false;
     }
 
     public override void OnStartServer()
     {
-        NetworkServer.Spawn(gameObject);        
+        //NetworkServer.Spawn(gameObject);        
     }
 
     // Update is called once per frame
@@ -36,8 +36,7 @@ public class Item : NetworkBehaviour {
 
     private void PickItem()
     {
-        GameObject gamePlayer = DataMaster.GamePlayer;
-        PlayerCommand playerCommand = gamePlayer.GetComponent<PlayerCommand>();
+        PlayerCommand playerCommand = DataMaster.GamePlayer.GetComponent<PlayerCommand>();
         playerCommand.CmdPickItem(netId);
 
         //Iconize();
@@ -46,8 +45,18 @@ public class Item : NetworkBehaviour {
 
     public void DropItem()
     {
-        Deiconize();
+        GameObject gamePlayer = DataMaster.GamePlayer;
+        Vector3 itemPosition = gamePlayer.transform.position;
+        itemPosition.x += 1;
+
+        PlayerCommand playerCommand = DataMaster.GamePlayer.GetComponent<PlayerCommand>();
+        playerCommand.CmdDropItem(itemId, itemPosition);
+
+        //Deiconize();
         InventoryManager.GetInstance().RemoveItem(this);
+        Destroy(this);
+
+        Debug.Log("DropItem itemId:" + itemId);
     }
 
     [ClientRpc]
@@ -91,6 +100,25 @@ public class Item : NetworkBehaviour {
 
         this.transform.SetParent(null);
         this.transform.localPosition = Vector3.zero;
+
+        if (null != itemSlot)
+        {
+            itemSlot.GetComponent<ItemSlot>().enabled = false;
+        }
+
+        isIconize = false;
+    }
+
+
+    [ClientRpc]
+    public void RpcDeiconize(Vector3 itemPosition)
+    {
+        this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        this.gameObject.GetComponent<Collider>().enabled = true;
+        this.gameObject.GetComponent<Item>().enabled = true;
+
+        this.transform.SetParent(null);
+        this.transform.position = itemPosition;
 
         if (null != itemSlot)
         {

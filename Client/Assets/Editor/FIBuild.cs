@@ -5,7 +5,7 @@
 public class FIBuild
 {
 
-    [MenuItem("Build/Build GameServer")]
+    [MenuItem("Build/Build GameServer", false, 1)]
     public static void BuildGameServer()
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
@@ -16,7 +16,7 @@ public class FIBuild
         BuildPipeline.BuildPlayer(buildPlayerOptions);
     }
 
-    [MenuItem("Build/Build GameClient")]
+    [MenuItem("Build/Build GameClient", false, 1)]
     public static void BuildGameClient()
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();

@@ -11,7 +11,6 @@ public class InventoryManager
     private static InventoryManager instance = null;
 
     private InventoryUI inventoryUI = null;
-
     ItemsFab itemsFab;
 
     public static InventoryManager GetInstance()
@@ -50,11 +49,10 @@ public class InventoryManager
                 item_count++;
         }
 
-        //_inventoryUI.fabItemSlots[rmiItem.itemId];
         RmiItem rmiItem;
-
         rmiItem.itemId = item.itemId;
         rmiItem.itemNum = item_count;
+
         UpdateItem(rmiItem);
     }
 
@@ -92,11 +90,9 @@ public class InventoryManager
         rmiInventory = inventoryPrx.getInventory();
         foreach (RmiItem rmiItem in rmiInventory.items)
         {  
-
             for (int i=0; i<rmiItem.itemNum; i++) {
                 GameObject gbItem = itemsFab.NewItem(rmiItem.itemId);
                 Item item = gbItem.GetComponent<Item>();
-
                 inventoryUI.ShowNewItem(item);
                 inventory.AddItem(item);
             }

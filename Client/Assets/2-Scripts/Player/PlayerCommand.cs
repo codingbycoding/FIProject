@@ -8,10 +8,17 @@ using UnityEngine.Networking;
 //PlayerCommand holds all the commands that player could invoke on the server
 public class PlayerCommand : NetworkBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private ItemsFab itemsFab;
+    // Use this for initialization
+
+    public override void OnStartServer()
+    {
+        itemsFab = DataMaster.GameServer.GetComponent<ItemsFab>();
+    }
+
+    void Start () {        
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -64,5 +71,14 @@ public class PlayerCommand : NetworkBehaviour {
         GameObject objItem = NetworkServer.FindLocalObject(netId);
         Item item = objItem.GetComponent<Item>();
         item.RpcIconize();
+    }
+
+    [Command]
+    public void CmdDropItem(int itemId, Vector3 itemPosition)
+    {
+        GameObject gbItem = itemsFab.NewItem(itemId);
+        gbItem.transform.position = itemPosition;
+        NetworkServer.Spawn(gbItem);
+        Debug.Log(string.Format("CmdDropItem position({0}, {1}, {2})", itemPosition.x, itemPosition.y, itemPosition.z));
     }
 }

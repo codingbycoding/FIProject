@@ -11,7 +11,7 @@ public class GameClient : BaseNetworkGameManager {
 
     private AsyncOperation asyncSceneLoad;
     private AvatarPanel avatarPanel;
-    private int avatarId;
+    //private int avatarId;
 
     public ServerInfo servInfo { get; set; }
     public ServerEntry restoreServEntry { get; set; }
@@ -87,7 +87,7 @@ public class GameClient : BaseNetworkGameManager {
 
     public void ConnectOlineService(string userName, string password, int avatarId = 0)
     {
-        this.avatarId = avatarId;
+        //this.avatarId = avatarId;
         this.userName = userName;
 
         onlineManager = OnlineManager.InitOnlineManager("127.0.0.1", 4060);
@@ -234,4 +234,5 @@ public class GameClient : BaseNetworkGameManager {
         }
 
     }
+
 }

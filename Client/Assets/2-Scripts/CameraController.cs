@@ -7,7 +7,7 @@ namespace FIProject
     public class CameraController : MonoBehaviour
     {
 
-        private bool isHoldingMouseY;
+        //private bool isHoldingMouseY;
         private int cameraLevel;
 
         private Vector3 offsetTargetPosition;
@@ -16,7 +16,7 @@ namespace FIProject
         // Use this for initialization
         void Start()
         {
-            isHoldingMouseY = false;
+            //isHoldingMouseY = false;
             cameraLevel = 0;
             offsetPosition = new Vector3(0, 1, -1);
             Debug.Log("CameraController Start()");

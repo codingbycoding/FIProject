@@ -44,6 +44,7 @@ public class DataMaster : MonoBehaviour
     }
 
 
+
     //    (GameClient inNetworkController)
     //{
     //    gameClient = inNetworkController;

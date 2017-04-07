@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Networking;
+﻿using UnityEngine;
 
-public class ItemsFab : NetworkBehaviour {
+
+public class ItemsFab : MonoBehaviour {
 
     public GameObject[] fabItems;
     // Use this for initialization

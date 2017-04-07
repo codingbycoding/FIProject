@@ -31,7 +31,7 @@ public class GameServer : BaseNetworkGameManager {
     [SerializeField]
     private int maxPlayersNum = 20;
 
-    private ItemsFab itemsFab;
+    //private ItemsFab itemsFab;
     // Use this for initialization
     void Start() {
         DataMaster.GameServer = this;
@@ -65,17 +65,17 @@ public class GameServer : BaseNetworkGameManager {
     }
 
 
-    void SpawnItems()
-    {
-        Vector3 vec3 = new Vector3(20f, 0.4f, 35f);
-        Quaternion rotation = Quaternion.Euler(new Vector3(-40f, 0, 0));
-        for (int i = 0; i < itemsFab.fabItems.Length - 1; i++)
-        {
-            vec3.x += i;
-            NetworkServer.Spawn(Instantiate(itemsFab.fabItems[i], vec3, rotation));
-        }
+    //void SpawnItems()
+    //{
+    //    Vector3 vec3 = new Vector3(20f, 0.4f, 35f);
+    //    Quaternion rotation = Quaternion.Euler(new Vector3(-40f, 0, 0));
+    //    for (int i = 0; i < itemsFab.fabItems.Length - 1; i++)
+    //    {
+    //        vec3.x += i;
+    //        NetworkServer.Spawn(Instantiate(itemsFab.fabItems[i], vec3, rotation));
+    //    }
 
-    }
+    //}
 
 
     void ParseParameters()
@@ -186,7 +186,7 @@ public class GameServer : BaseNetworkGameManager {
     {
         Debug.Log(string.Format("OnServerReady conn.ToString():{0}", conn.ToString()));
         //NetworkServer.SetClientReady(conn);
-        GameUser gameUser = gameUserManager.GetGameUser(conn);
+        //GameUser gameUser = gameUserManager.GetGameUser(conn);
 
     }
 
