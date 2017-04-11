@@ -13,6 +13,8 @@ public class AssetsBundleOp : MonoBehaviour {
     Text precentIndicator;
     Text stateIndicator;
     bool downloadDone;
+
+    string bundleURL = "file://C:/Users/Adam/Documents/GitHub/FIProject/Client/AssetBundles/Windows/scenes/serverscene_assetbundle_1";
     // Use this for initialization
     void Start () {
         Transform bgProgress = transform.FindChild("AB_Scene_1_bg");
@@ -24,12 +26,23 @@ public class AssetsBundleOp : MonoBehaviour {
         precentIndicator.text = "";
         bgImage.fillAmount = 0;
         downloadDone = false;
+
+        CheckCached();
+    }
+
+    void CheckCached()
+    {
+        if(Caching.IsVersionCached(bundleURL, 0))
+        {
+            stateIndicator.text = "Ready";
+            downloadDone = true;
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if(stateIndicator.text.Equals(""))
+        if(stateIndicator.text.Equals("") || stateIndicator.text.Equals("Ready"))
         {
             return;
         }
@@ -54,7 +67,7 @@ public class AssetsBundleOp : MonoBehaviour {
         }
 
         stateIndicator.text = "Loading...";
-        string bundleURL = "file://C:/Users/Adam/Documents/GitHub/FIProject/Client/AssetBundles/Windows/scenes/serverscene_assetbundle_1";
+
         StartCoroutine(DownloadAssetBundle_Scene_1(bundleURL));
     }
 
@@ -89,7 +102,7 @@ public class AssetsBundleOp : MonoBehaviour {
             // Unload the AssetBundles compressed contents to conserve memory
             //bundle.Unload(false);
 
-            //string[] scenePath = _assetBundleScene.GetAllScenePaths();
+            //string[] scenePath = assetBundleScene.GetAllScenePaths();
             //Debug.Log("scenePath[0]:" + Path.GetFileNameWithoutExtension(scenePath[0]));
 
             //SceneManager.LoadSceneAsync(System.IO.Path.GetFileNameWithoutExtension(scenePath[0]), LoadSceneMode.Single);

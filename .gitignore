@@ -109,3 +109,11 @@ Server/.gradle/**
 
 AssetBundles
 
+OnlineServices/build/
+OnlineServices/db
+OnlineServices/log
+OnlineServices/gradle
+OnlineServices/.gradle
+OnlineServices/.idea
+
+

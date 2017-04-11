@@ -1,0 +1,110 @@
+group 'es.upm.fi.test'
+version '0.0.1-SNAPSHOT'
+
+
+buildscript {
+    repositories {
+
+        maven {
+            url 'https://repo.zeroc.com/nexus/content/repositories/releases'
+        }
+
+        mavenCentral()
+
+        maven { url "https://mvnrepository.com/artifact/mysql/mysql-connector-java" }
+        maven { url "http://mvnrepository.com/artifact/javassist/javassist/3.12.1.GA" }
+        maven { url "http://repo2.maven.org/maven2/" }
+        maven { url "https://mvnrepository.com/artifact/commons-codec/commons-codec" }
+    }
+
+    dependencies {
+        classpath group: 'com.zeroc.gradle.ice-builder', name: 'slice', version: '1.0.5'
+    }
+}
+
+
+
+apply plugin: 'java'
+apply plugin: 'slice'
+// slice.iceHome = '/opt/Ice'
+
+
+slice {
+    java {
+        include = ['./src/main/slice']
+    }
+}
+
+compileJava {
+         //enable compilation in a separate daemon process
+        //options.fork = true
+
+        //enable incremental compilation
+        options.incremental = true
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use 'jcenter' for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+    mavenCentral()
+}
+
+
+dependencies {
+    compile 'com.zeroc:ice:3.6.3'
+    compile 'com.zeroc:glacier2:3.6.3'
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.7'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.7'
+
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
+
+    compile 'org.hibernate:hibernate-core:3.6.7.Final'
+    compile "org.slf4j:slf4j-simple:1.7.9"
+    compile "javassist:javassist:3.12.1.GA"
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.5'
+}
+
+
+def demoJar(name) {
+    def taskName = name + "Jar"
+    // Create a jar for the client & server which includes everything in the demo.
+    def jarTask = tasks.create(name: taskName, type: Jar) {
+
+        //baseName = name + ${version}
+        from(sourceSets.main.output) {
+            include "**"
+        }
+    }
+
+    jarTask.manifest {
+        attributes("Main-Class": name.capitalize())
+        attributes("Class-Path": configurations.runtime.resolve().collect { it.toURI() }.join(' '))
+    }
+
+    artifacts {
+        archives jarTask
+    }
+}
+
+ext {
+    demoJar = this.&demoJar
+}
+
+
+task makeDbDirs << {
+    file('db/registry').mkdirs()
+    file('db/node').mkdirs()
+}
+compileJava.dependsOn(makeDbDirs)
+
+clean {
+    delete 'db'
+}
+
+// Don't create the default jar.
+jar.enabled = false
+
+demoJar("server")

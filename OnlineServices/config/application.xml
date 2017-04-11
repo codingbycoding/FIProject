@@ -1,0 +1,45 @@
+<!--
+ **********************************************************************
+
+ Copyright (c) 2003-2016 ZeroC, Inc. All rights reserved.
+
+ **********************************************************************
+-->
+
+<icegrid>
+
+  <application name="Simple">
+
+    <node name="node1">
+      <server id="SimpleServer" exe="java" activation="always">
+        <option>-Dlog4j.configurationFile=config/log4j2.xml</option>
+        <option>-XX:MaxJavaStackTraceDepth=-1</option>
+
+        <option>-jar</option>
+        <option>build/libs/OnlineServices-0.0.1-SNAPSHOT.jar</option>
+
+		<adapter name="PaseoAdapter" endpoints="tcp -h localhost">
+        
+        <object identity="PermissionsVerifier/PaseoPasswordPermissionsVerifier" type="::Glacier2::PermissionsVerifier"/>
+        <object identity="UserSessionManagement/PaseoUserSessionManager" type="::Glacier2::SessionManager"/>
+		
+		<object identity="PaseoOnline/PaseoAccountService" type="::es::upm::fi::rmi::AccountService" property="Identity"/>
+		<object identity="PaseoOnline/PaseoChatService" type="::es::upm::fi::rmi::ChatService" />
+		<object identity="PaseoOnline/PaseoServerService" type="::es::upm::fi::rmi::ServerService" />
+        <object identity="PaseoOnline/PaseoDsService" type="::es::upm::fi::rmi::DsService" />
+        <object identity="PaseoOnline/PaseoAvatarService" type="::es::upm::fi::rmi::AvatarService" />
+        <object identity="PaseoOnline/PaseoInventoryService" type="::es::upm::fi::rmi::InventoryService" />
+
+		<object identity="PaseoOnline/PaseoNotificationRegisterService" type="::es::upm::fi::rmi::NotificationRegisterService" />
+	</adapter>
+
+        <property name="IceMX.Metrics.Debug.GroupBy" value="id"/>
+        <property name="IceMX.Metrics.Debug.Disabled" value="1"/>
+        <property name="IceMX.Metrics.ByParent.GroupBy" value="parent"/>
+        <property name="IceMX.Metrics.ByParent.Disabled" value="1"/>
+      </server>
+    </node>
+
+  </application>
+
+</icegrid>
