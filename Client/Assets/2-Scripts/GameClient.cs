@@ -20,6 +20,9 @@ public class GameClient : BaseNetworkGameManager {
 
     private string cookie;
 
+//	private string onlineIP = "127.0.0.1";
+//	private int onlinePort = 4060;
+
     public OnlineManager onlineManager;
     public AvatarManager avatarManager;
     public DsManager dsManager;
@@ -84,13 +87,12 @@ public class GameClient : BaseNetworkGameManager {
         Debug.Log("entry.keys:" + msgTypes);
     }
 
-
-    public void ConnectOlineService(string userName, string password, int avatarId = 0)
-    {
+	public void ConnectOnlineService(string onlineIP, int onlinePort, string userName, string password, int avatarId = 0)
+	{
         //this.avatarId = avatarId;
         this.userName = userName;
 
-        onlineManager = OnlineManager.InitOnlineManager("127.0.0.1", 4060);
+		onlineManager = OnlineManager.InitOnlineManager(onlineIP, onlinePort);
 
         if (!onlineManager.Login(userName, password))
         {

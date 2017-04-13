@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 using es.upm.fi.rmi;
@@ -35,7 +36,7 @@ public class ChatUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (gameClient != null && !Network.isServer)
+		if (gameClient != null && !NetworkServer.active)
         {
             Queue<Message> msgQue = gameClient.chatManager.GetMsgQueue();
 

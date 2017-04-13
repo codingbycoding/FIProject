@@ -11,6 +11,7 @@ public class Login : MonoBehaviour {
 
     InputField userNameInput;
     InputField passwordInput;
+	InputField onlineIPInput;
 
     // Use this for initialization
     void Start() {
@@ -26,6 +27,7 @@ public class Login : MonoBehaviour {
 
         userNameInput = GameObject.Find("UserName").GetComponent<InputField>();
         passwordInput = GameObject.Find("Password").GetComponent<InputField>();
+		onlineIPInput = GameObject.Find("OnlineIP").GetComponent<InputField>();
     }
 
     // Update is called once per frame
@@ -49,6 +51,14 @@ public class Login : MonoBehaviour {
 
         int avatarId = avatarPanel.AvatarCursor;
 
-        gameClient.ConnectOlineService(userName, password, avatarId);
+		string onlineIP = "127.0.0.1";
+		if(!onlineIPInput.text.Equals("")) 
+		{
+			onlineIP = onlineIPInput.text;
+		}
+		
+		int onlinePort = 4060;
+
+        gameClient.ConnectOnlineService(onlineIP, onlinePort, userName, password, avatarId);
     }
 }
