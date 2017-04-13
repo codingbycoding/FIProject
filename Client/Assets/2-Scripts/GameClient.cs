@@ -20,7 +20,7 @@ public class GameClient : BaseNetworkGameManager {
 
     private string cookie;
 
-//	private string onlineIP = "127.0.0.1";
+	private string onlineIP;
 //	private int onlinePort = 4060;
 
     public OnlineManager onlineManager;
@@ -40,6 +40,10 @@ public class GameClient : BaseNetworkGameManager {
     void Update() {
 
     }
+
+	public string OnlineIP {
+		get { return onlineIP; }
+	}
 
     public void ConnectGameServer(string serverIp, int serverPort, string cookie)
     {
@@ -91,6 +95,7 @@ public class GameClient : BaseNetworkGameManager {
 	{
         //this.avatarId = avatarId;
         this.userName = userName;
+		this.onlineIP = onlineIP;
 
 		onlineManager = OnlineManager.InitOnlineManager(onlineIP, onlinePort);
 

@@ -14,10 +14,15 @@ public class AssetsBundleOp : MonoBehaviour {
     Text stateIndicator;
     bool downloadDone;
 
+	string baseBundleURL;
     // string bundleURL = "file://C:/Users/Adam/Documents/GitHub/FIProject/Client/AssetBundles/Windows/scenes/serverscene_assetbundle_1";
-	string bundleURL = "http://localhost:8080/FIProject_AssetBundles/scenes/serverscene_assetbundle_1";
+	string bundleURL; // = "http://localhost:8080/FIProject_AssetBundles/scenes/serverscene_assetbundle_1";
+
 	// Use this for initialization
-    void Start () {
+    void Start () {		
+		baseBundleURL = "http://" + DataMaster.GameClient.OnlineIP + ":8080/FIProject_AssetBundles/scenes/";
+		string assetBundleSceneName = "serverscene_assetbundle_1";
+		bundleURL = baseBundleURL + assetBundleSceneName;
         Transform bgProgress = transform.FindChild("AB_Scene_1_bg");
         bgImage = bgProgress.GetComponent<Image>();
 
