@@ -13,6 +13,15 @@ namespace FIProject
         private Vector3 offsetTargetPosition;
         private Vector3 offsetPosition;
         private Transform targetTransform = null;
+
+
+		private float x = 0.0f;
+		private float y = 0.0f;
+		private float yMinLimit = -20;
+		private float yMaxLimit = 80;
+		private float xSpped = 250;
+		private float ySpeed = 120;
+
         // Use this for initialization
         void Start()
         {
@@ -57,7 +66,34 @@ namespace FIProject
             }
 
 
+
+			// 
+			if(Input.GetMouseButton(0) && Input.GetMouseButton(1))				
+			{
+				x += Input.GetAxis("Mouse X") * xSpped * 0.02f;
+				y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+
+				y = ClampAngle(y, yMinLimit, yMaxLimit);
+
+				var rotation = Quaternion.Euler(y, x, 0);
+				//var pRotation = Quaternion.Euler(0, x, 0);
+
+				transform.rotation = rotation;
+				targetTransform.rotation = rotation;
+				//targetTransform.rotation = pRotation;
+			}
+
+
         }
+
+		float ClampAngle(float angle, float min, float max)
+		{
+			if (angle < -360)
+				angle += 360;
+			if (angle > 360)
+				angle -= 360;
+			return Mathf.Clamp(angle, min, max);
+		}
 
         private void FixedUpdate()
         {

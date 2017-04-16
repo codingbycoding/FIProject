@@ -70,6 +70,7 @@ public class PlayerCommand : NetworkBehaviour {
     {
         GameObject objItem = NetworkServer.FindLocalObject(netId);
         Item item = objItem.GetComponent<Item>();
+		item.Iconize ();
         item.RpcIconize();
     }
 

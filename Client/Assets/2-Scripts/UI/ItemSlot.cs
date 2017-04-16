@@ -7,6 +7,7 @@ using UnityEngine;
 public class ItemSlot : MonoBehaviour {   
 
     private bool isMouseCurrentOver = false;
+	private bool isDropping = false;
     private Item item;
     // Use this for initialization
     void Start () {
@@ -41,8 +42,9 @@ public class ItemSlot : MonoBehaviour {
 
     void OnGUI()
     {
-        if (Event.current.button == 1 && isMouseCurrentOver)
+		if (Event.current.button == 1 && isMouseCurrentOver && !isDropping)
         {
+			isDropping = true;
             Debug.Log("ItemSlot OnGUI button == 1 item_id:" + item.itemId);
 
             this.gameObject.transform.SetParent(null);
