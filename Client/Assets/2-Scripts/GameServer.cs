@@ -46,6 +46,11 @@ public class GameServer : BaseNetworkGameManager {
         gameUserManager = GameUserManager.GetGameUserManager();
     }
 
+	void OnDestroy() {
+		print("GameServer Script was destroyed");
+		onlineManager.Logout ();
+	}
+
 
     void PrintRegisteredServerMsg()
     {

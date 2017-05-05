@@ -36,6 +36,11 @@ public class ChatManager
         chatPrx.SendChatMessage(0, 0, 1, receiverName, message);
     }
 
+	public string[] GetOnlineUserList()
+	{
+		return chatPrx.GetOnlineUserList();
+	}
+
     public void OnReceiveMessage(Message msg)
     {
         msgQue.Enqueue(msg);

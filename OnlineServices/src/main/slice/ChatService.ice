@@ -49,6 +49,9 @@ module es
 					byte 				informationState;
 				};
 
+
+                sequence<string>	OnlineUserSeq;
+
 				exception ChatException extends PaseoException
                 {};
 
@@ -73,6 +76,7 @@ module es
 					InformationInfoSeq GetAllInformation( long sid );
 					bool DelInformation( long sid, int informationId );
 					CharacterSeq GetSameChannelIdlePlayers( long sid ) throws PaseoException;
+					OnlineUserSeq GetOnlineUserList() throws PaseoException;
 				};
 			};
 		};

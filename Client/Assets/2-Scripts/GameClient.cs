@@ -36,6 +36,11 @@ public class GameClient : BaseNetworkGameManager {
         cookie = "defaultCookie";
     }
 
+	void OnDestroy() {
+		print("GameClient Script was destroyed");
+		//onlineManager.Logout ();
+	}
+
     // Update is called once per frame
     void Update() {
 

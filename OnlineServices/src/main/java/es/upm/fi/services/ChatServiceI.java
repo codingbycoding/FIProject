@@ -91,4 +91,11 @@ public class ChatServiceI extends _ChatServiceDisp {
     public CharacterProfile[] GetSameChannelIdlePlayers(long sid, Current __current) throws PaseoException {
         return new CharacterProfile[0];
     }
+
+    @Override
+    public String[] GetOnlineUserList(Ice.Current __current)
+            throws PaseoException {
+
+        return OLUserMgr.getInstance().getAllUser();
+    }
 }

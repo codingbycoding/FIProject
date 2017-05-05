@@ -31,10 +31,16 @@ public class PaseoPasswordPermissionsVerifierI extends _PermissionsVerifierDisp 
 
 
         OLUser olUser = new OLUser(userId, ConvertorUtil.ConStr2Remote(__current.con._toString()));
-        OLUserMgr.getInstance().addOrUpdateUser(olUser);
+        ret = OLUserMgr.getInstance().addOrUpdateUser(olUser);
+
+
         UTLogger.info("Add User _toString:" + __current.con._toString());
         //ret = AuthDB.checkAuth(userId, password);
-        ret = true;
+        if(!ret) {
+            UTLogger.info("Add User " + userId + "failed:" + __current.con._toString());
+            reason.value = new String(new byte[]{USER_NAME_FAILED});
+        }
+
         return ret;
     }
 
@@ -75,6 +81,7 @@ public class PaseoPasswordPermissionsVerifierI extends _PermissionsVerifierDisp 
 
     private static final byte CHECK_SUCCESS = 0;
     private static final byte VERIFY_FAILED = 1;
+    private static final byte USER_NAME_FAILED = 2;
     private static final byte UNKNOWN = 3;
 
 
