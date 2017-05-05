@@ -82,7 +82,7 @@ Thumbs.db
 
 # client folders 
 Client/Build/**
-Client/Assets/3-Scripts/generated/**
+Client/Assets/2-Scripts/generated/**
 Client/*.csproj
 
 Client/*.sln
