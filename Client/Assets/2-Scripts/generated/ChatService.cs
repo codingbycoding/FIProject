@@ -1281,6 +1281,9 @@ namespace es
 
                 [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                 public delegate void Callback_ChatService_GetSameChannelIdlePlayers(es.upm.fi.rmi.CharacterProfile[] ret__);
+
+                [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
+                public delegate void Callback_ChatService_GetOnlineUserList(string[] ret__);
             }
         }
     }
@@ -1436,6 +1439,20 @@ namespace es
                     Ice.AsyncResult begin_GetSameChannelIdlePlayers(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
 
                     es.upm.fi.rmi.CharacterProfile[] end_GetSameChannelIdlePlayers(Ice.AsyncResult r__);
+
+                    string[] GetOnlineUserList();
+
+                    string[] GetOnlineUserList(_System.Collections.Generic.Dictionary<string, string> ctx__);
+
+                    Ice.AsyncResult<es.upm.fi.rmi.Callback_ChatService_GetOnlineUserList> begin_GetOnlineUserList();
+
+                    Ice.AsyncResult<es.upm.fi.rmi.Callback_ChatService_GetOnlineUserList> begin_GetOnlineUserList(_System.Collections.Generic.Dictionary<string, string> ctx__);
+
+                    Ice.AsyncResult begin_GetOnlineUserList(Ice.AsyncCallback cb__, object cookie__);
+
+                    Ice.AsyncResult begin_GetOnlineUserList(_System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
+
+                    string[] end_GetOnlineUserList(Ice.AsyncResult r__);
                 }
             }
         }
@@ -1472,6 +1489,8 @@ namespace es
                     bool DelInformation(long sid, int informationId, Ice.Current current__);
 
                     es.upm.fi.rmi.CharacterProfile[] GetSameChannelIdlePlayers(long sid, Ice.Current current__);
+
+                    string[] GetOnlineUserList(Ice.Current current__);
                 }
 
                 [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
@@ -1496,6 +1515,8 @@ namespace es
                     bool DelInformation(long sid, int informationId);
 
                     es.upm.fi.rmi.CharacterProfile[] GetSameChannelIdlePlayers(long sid);
+
+                    string[] GetOnlineUserList();
                 }
             }
         }
@@ -1614,6 +1635,22 @@ namespace es
                     }
                 }
 
+                [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
+                public sealed class OnlineUserSeqHelper
+                {
+                    public static void write(IceInternal.BasicStream os__, string[] v__)
+                    {
+                        os__.writeStringSeq(v__);
+                    }
+
+                    public static string[] read(IceInternal.BasicStream is__)
+                    {
+                        string[] v__;
+                        v__ = is__.readStringSeq();
+                        return v__;
+                    }
+                }
+
                 [_System.Runtime.InteropServices.ComVisible(false)]
                 [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                 public sealed class ChatServicePrxHelper : Ice.ObjectPrxHelperBase, ChatServicePrx
@@ -1698,6 +1735,22 @@ namespace es
                     {
                         checkTwowayOnly__(__GetAllNoticeByType_name);
                         return end_GetAllNoticeByType(begin_GetAllNoticeByType(sid, noticeType, context__, explicitCtx__, true, null, null));
+                    }
+
+                    public string[] GetOnlineUserList()
+                    {
+                        return this.GetOnlineUserList(null, false);
+                    }
+
+                    public string[] GetOnlineUserList(_System.Collections.Generic.Dictionary<string, string> ctx__)
+                    {
+                        return this.GetOnlineUserList(ctx__, true);
+                    }
+
+                    private string[] GetOnlineUserList(_System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
+                    {
+                        checkTwowayOnly__(__GetOnlineUserList_name);
+                        return end_GetOnlineUserList(begin_GetOnlineUserList(context__, explicitCtx__, true, null, null));
                     }
 
                     public es.upm.fi.rmi.CharacterProfile[] GetSameChannelIdlePlayers(long sid)
@@ -2243,6 +2296,102 @@ namespace es
                         try
                         {
                             ret__ = end_GetAllNoticeByType(r__);
+                        }
+                        catch(Ice.Exception ex__)
+                        {
+                            if(excb__ != null)
+                            {
+                                excb__(ex__);
+                            }
+                            return;
+                        }
+                        if(cb__ != null)
+                        {
+                            cb__(ret__);
+                        }
+                    }
+
+                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_ChatService_GetOnlineUserList> begin_GetOnlineUserList()
+                    {
+                        return begin_GetOnlineUserList(null, false, false, null, null);
+                    }
+
+                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_ChatService_GetOnlineUserList> begin_GetOnlineUserList(_System.Collections.Generic.Dictionary<string, string> ctx__)
+                    {
+                        return begin_GetOnlineUserList(ctx__, true, false, null, null);
+                    }
+
+                    public Ice.AsyncResult begin_GetOnlineUserList(Ice.AsyncCallback cb__, object cookie__)
+                    {
+                        return begin_GetOnlineUserList(null, false, false, cb__, cookie__);
+                    }
+
+                    public Ice.AsyncResult begin_GetOnlineUserList(_System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
+                    {
+                        return begin_GetOnlineUserList(ctx__, true, false, cb__, cookie__);
+                    }
+
+                    private const string __GetOnlineUserList_name = "GetOnlineUserList";
+
+                    public string[] end_GetOnlineUserList(Ice.AsyncResult r__)
+                    {
+                        IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __GetOnlineUserList_name);
+                        try
+                        {
+                            if(!outAsync__.wait())
+                            {
+                                try
+                                {
+                                    outAsync__.throwUserException();
+                                }
+                                catch(es.upm.fi.rmi.PaseoException)
+                                {
+                                    throw;
+                                }
+                                catch(Ice.UserException ex__)
+                                {
+                                    throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
+                                }
+                            }
+                            string[] ret__;
+                            IceInternal.BasicStream is__ = outAsync__.startReadParams();
+                            ret__ = es.upm.fi.rmi.OnlineUserSeqHelper.read(is__);
+                            outAsync__.endReadParams();
+                            return ret__;
+                        }
+                        finally
+                        {
+                            outAsync__.cacheMessageBuffers();
+                        }
+                    }
+
+                    private Ice.AsyncResult<es.upm.fi.rmi.Callback_ChatService_GetOnlineUserList> begin_GetOnlineUserList(_System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
+                    {
+                        checkAsyncTwowayOnly__(__GetOnlineUserList_name);
+                        IceInternal.TwowayOutgoingAsync<es.upm.fi.rmi.Callback_ChatService_GetOnlineUserList> result__ =  getTwowayOutgoingAsync<es.upm.fi.rmi.Callback_ChatService_GetOnlineUserList>(__GetOnlineUserList_name, GetOnlineUserList_completed__, cookie__);
+                        if(cb__ != null)
+                        {
+                            result__.whenCompletedWithAsyncCallback(cb__);
+                        }
+                        try
+                        {
+                            result__.prepare(__GetOnlineUserList_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
+                            result__.writeEmptyParams();
+                            result__.invoke();
+                        }
+                        catch(Ice.Exception ex__)
+                        {
+                            result__.abort(ex__);
+                        }
+                        return result__;
+                    }
+
+                    private void GetOnlineUserList_completed__(Ice.AsyncResult r__, es.upm.fi.rmi.Callback_ChatService_GetOnlineUserList cb__, Ice.ExceptionCallback excb__)
+                    {
+                        string[] ret__;
+                        try
+                        {
+                            ret__ = end_GetOnlineUserList(r__);
                         }
                         catch(Ice.Exception ex__)
                         {
@@ -2974,6 +3123,13 @@ namespace es
 
                     public abstract es.upm.fi.rmi.CharacterProfile[] GetSameChannelIdlePlayers(long sid, Ice.Current current__);
 
+                    public string[] GetOnlineUserList()
+                    {
+                        return GetOnlineUserList(Ice.ObjectImpl.defaultCurrent);
+                    }
+
+                    public abstract string[] GetOnlineUserList(Ice.Current current__);
+
                     #endregion
 
                     #region Slice type-related members
@@ -3219,6 +3375,26 @@ namespace es
                         }
                     }
 
+                    [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+                    public static Ice.DispatchStatus GetOnlineUserList___(ChatService obj__, IceInternal.Incoming inS__, Ice.Current current__)
+                    {
+                        Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
+                        inS__.readEmptyParams();
+                        try
+                        {
+                            string[] ret__ = obj__.GetOnlineUserList(current__);
+                            IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
+                            es.upm.fi.rmi.OnlineUserSeqHelper.write(os__, ret__);
+                            inS__.endWriteParams__(true);
+                            return Ice.DispatchStatus.DispatchOK;
+                        }
+                        catch(es.upm.fi.rmi.PaseoException ex__)
+                        {
+                            inS__.writeUserException__(ex__, Ice.FormatType.DefaultFormat);
+                            return Ice.DispatchStatus.DispatchUserException;
+                        }
+                    }
+
                     private static string[] all__ =
                     {
                         "DelInformation",
@@ -3226,6 +3402,7 @@ namespace es
                         "GetAllChannel",
                         "GetAllInformation",
                         "GetAllNoticeByType",
+                        "GetOnlineUserList",
                         "GetSameChannelIdlePlayers",
                         "JoinChannel",
                         "SendChatMessage",
@@ -3269,37 +3446,41 @@ namespace es
                             }
                             case 5:
                             {
-                                return GetSameChannelIdlePlayers___(this, inS__, current__);
+                                return GetOnlineUserList___(this, inS__, current__);
                             }
                             case 6:
                             {
-                                return JoinChannel___(this, inS__, current__);
+                                return GetSameChannelIdlePlayers___(this, inS__, current__);
                             }
                             case 7:
                             {
-                                return SendChatMessage___(this, inS__, current__);
+                                return JoinChannel___(this, inS__, current__);
                             }
                             case 8:
                             {
-                                return SendInformation___(this, inS__, current__);
+                                return SendChatMessage___(this, inS__, current__);
                             }
                             case 9:
                             {
-                                return SendNotice___(this, inS__, current__);
+                                return SendInformation___(this, inS__, current__);
                             }
                             case 10:
                             {
-                                return Ice.ObjectImpl.ice_id___(this, inS__, current__);
+                                return SendNotice___(this, inS__, current__);
                             }
                             case 11:
                             {
-                                return Ice.ObjectImpl.ice_ids___(this, inS__, current__);
+                                return Ice.ObjectImpl.ice_id___(this, inS__, current__);
                             }
                             case 12:
                             {
-                                return Ice.ObjectImpl.ice_isA___(this, inS__, current__);
+                                return Ice.ObjectImpl.ice_ids___(this, inS__, current__);
                             }
                             case 13:
+                            {
+                                return Ice.ObjectImpl.ice_isA___(this, inS__, current__);
+                            }
+                            case 14:
                             {
                                 return Ice.ObjectImpl.ice_ping___(this, inS__, current__);
                             }

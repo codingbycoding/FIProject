@@ -12,6 +12,11 @@ public class ServerListMgr : MonoBehaviour {
     private RectTransform parentPanel;
 
     public Button restoreButtonFab;
+
+	private readonly string[] serverLabelNames = {
+		"City", "ServerScene_1", "ServerScene_2", "assetbundle_serverscene_1"
+	};
+
     // Use this for initialization
     void Start () {
         gameClient = DataMaster.GameClient;
@@ -19,19 +24,46 @@ public class ServerListMgr : MonoBehaviour {
         parentPanel = GameObject.Find("ServerListPanel").GetComponent<RectTransform>(); 
 
         int index = 0;
-        foreach(ServerEntry servEntry in gameClient.servInfo.serverInfoSeq)
-        {
-            Button bt = Instantiate<Button>(servEntryButtonFab, new Vector3(0, -60.0f-80.0f*index++, 0), Quaternion.identity);
-            bt.GetComponentInChildren<Text>().text = servEntry.name + "  " + servEntry.servAddr;
-            bt.transform.SetParent(parentPanel, false);
 
-            ServEntryButton servEntryButton = bt.GetComponent<ServEntryButton>();
-            string[]  strIPAndPort = servEntry.servAddr.Split(':');
-            servEntryButton.setServIP(strIPAndPort[0]);
-            servEntryButton.setServPort(Int32.Parse(strIPAndPort[1]));
+		foreach(string serverLabelName in serverLabelNames) {
+			bool bMatched = false;
 
-            Debug.Log(servEntry.servAddr);
-        }
+			Button bt = Instantiate<Button>(servEntryButtonFab, new Vector3(0, -60.0f-80.0f*index++, 0), Quaternion.identity);
+			bt.transform.SetParent(parentPanel, false);
+			bt.transform.FindChild ("AssetBundle").SetAsFirstSibling ();
+
+			foreach(ServerEntry servEntry in gameClient.servInfo.serverInfoSeq)
+			{						
+				if(serverLabelName.Equals(servEntry.name)) {
+					
+					bt.transform.FindChild("ServerName").GetComponent<Text>().text = servEntry.name + "  " + servEntry.servAddr;
+
+					ServEntryButton servEntryButton = bt.GetComponent<ServEntryButton>();
+					string[]  strIPAndPort = servEntry.servAddr.Split(':');
+					servEntryButton.setServIP(strIPAndPort[0]);
+					servEntryButton.setServPort(Int32.Parse(strIPAndPort[1]));
+
+					Debug.Log(servEntry.servAddr);
+
+					bMatched = true;
+					break;
+				}
+			}
+
+			if(false == bMatched) {				
+				bt.transform.FindChild("ServerName").GetComponent<Text>().text = serverLabelName;
+				bt.transform.FindChild("ServerStatus").GetComponent<Text> ().text = "offline";
+				bt.transform.FindChild("ServerStatus").GetComponent<Text> ().color = Color.red;
+			}
+
+			if(serverLabelName.Length > 11 
+				&& serverLabelName.Substring (0, 11).Equals("assetbundle")) {
+				bt.transform.FindChild ("AssetBundle").SetAsLastSibling ();
+				bt.transform.FindChild("AssetBundle").gameObject.GetComponent<AssetsBundleOp>().CheckCached(serverLabelName);
+			}
+
+		}
+
 
         AvatarState avatarState = gameClient.avatarManager.GetAvatarState(gameClient.userName);
         gameClient.restoreServEntry = avatarState.serverEntry;

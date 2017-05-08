@@ -20,6 +20,7 @@ public class GameServer : BaseNetworkGameManager {
 
     // Use to initiate dedicate server
     private string sceneName;
+	private string sceneLabelName;
     private string servIP;
     private int servPort;
 
@@ -88,11 +89,12 @@ public class GameServer : BaseNetworkGameManager {
         onlineIP = Util.GetArg("-OnlineIP");
         onlinePort = Util.GetArg("-OnlinePort", 0);
         sceneName = Util.GetArg("-SceneName");
+		sceneLabelName = Util.GetArg("-SceneLabelName");
         servIP = Util.GetArg("-IP");
         servPort = Util.GetArg("-Port", 0);
 
         if (null == onlineIP || 0 == onlinePort 
-            || null == sceneName || null == servIP || 0 == servPort)
+			|| null == sceneName || null == sceneLabelName || null == servIP || 0 == servPort)
         {
             Debug.LogError("ParseParameters Failed. Check the parameters!!!");
         }
@@ -108,7 +110,7 @@ public class GameServer : BaseNetworkGameManager {
         GameServerConnectOnlineService("DS", "DS");
 
         ServerEntry servEntry = new ServerEntry();
-        servEntry.name = sceneName;
+		servEntry.name = sceneLabelName;
         servEntry.servAddr = networkAddress + ":" + networkPort;
         
         dsManager = DsManager.GetDsManager();

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AssetsBundleOp : MonoBehaviour {
+public class AssetsBundlePanel : MonoBehaviour {
 
     AssetBundle assetBundleScene;
     float downloadProgress;
@@ -14,13 +14,14 @@ public class AssetsBundleOp : MonoBehaviour {
     Text stateIndicator;
     bool downloadDone;
 
-	string baseBundleURL; 
-	string bundleURL; 
+	string baseBundleURL;
+    // string bundleURL = "file://C:/Users/Adam/Documents/GitHub/FIProject/Client/AssetBundles/Windows/scenes/serverscene_assetbundle_1";
+	string bundleURL; // = "http://localhost:8080/FIProject_AssetBundles/scenes/serverscene_assetbundle_1";
 
 	// Use this for initialization
     void Start () {		
 		baseBundleURL = "http://" + DataMaster.GameClient.OnlineIP + ":8080/FIProject_AssetBundles/scenes/";
-		string assetBundleSceneName = "assetbundle_serverscene_1";
+		string assetBundleSceneName = "serverscene_assetbundle_1";
 		bundleURL = baseBundleURL + assetBundleSceneName;
         Transform bgProgress = transform.FindChild("AB_Scene_1_bg");
         bgImage = bgProgress.GetComponent<Image>();
@@ -29,40 +30,25 @@ public class AssetsBundleOp : MonoBehaviour {
         stateIndicator = transform.FindChild("loadingState").GetComponent<Text>();
         stateIndicator.text = "";
         precentIndicator.text = "";
-        //bgImage.fillAmount = 0;
+        bgImage.fillAmount = 0;
         downloadDone = false;
 
-		//CheckCached(assetBundleSceneName);
+        CheckCached();
     }
 
-	public void CheckCached(string assetBundleSceneName)
+    void CheckCached()
     {
-		if (0 == transform.GetSiblingIndex ()) {
-			return;
-		}
-
-
-		if(!assetBundleSceneName.Equals("")) {
-			bundleURL = baseBundleURL + assetBundleSceneName;
-		}
-
-		transform.FindChild("AssetBundleSceneName").GetComponent<Text>().text = assetBundleSceneName;
-
         if(Caching.IsVersionCached(bundleURL, 0))
         {
-			transform.FindChild("loadingState").GetComponent<Text>().text = "Ready";
+            stateIndicator.text = "Ready";
             downloadDone = true;
-			transform.SetAsFirstSibling ();
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if(stateIndicator.text.Equals("Ready")) {
-			transform.SetAsFirstSibling ();
-		}
 
-        if(stateIndicator.text.Equals(""))
+        if(stateIndicator.text.Equals("") || stateIndicator.text.Equals("Ready"))
         {
             return;
         }
@@ -75,7 +61,6 @@ public class AssetsBundleOp : MonoBehaviour {
         if (downloadDone)
         {
             stateIndicator.text = "Done";
-			transform.SetAsFirstSibling ();
         }
     }
 
