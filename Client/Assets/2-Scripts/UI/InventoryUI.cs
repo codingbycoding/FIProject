@@ -19,6 +19,7 @@ public class InventoryUI : MonoBehaviour
     private Vector3 inventoryPanelVec = new Vector3(54, -33, 0);
 
     private GameObject gbIconZone;
+
     // Use this for initialization
     void Start()
     {
@@ -28,6 +29,8 @@ public class InventoryUI : MonoBehaviour
         } else {
             gbInventory = Instantiate(fabInventoryPanel);
         }        
+
+
 
         gbInventory.transform.SetParent(GameObject.Find("Canvas").transform);
         gbInventory.GetComponent<RectTransform>().localPosition = inventoryPanelVec;
@@ -41,7 +44,7 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+		if (Input.GetKeyDown(KeyCode.I) && !BlockInventoryUI ())
         {
             gbInventory.SetActive(!gbInventory.activeSelf);
             if(gbInventory.activeSelf)
@@ -51,6 +54,17 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
+
+	bool BlockInventoryUI()
+	{
+		GameObject objChatInputField = GameObject.FindWithTag("ChatInputField");
+		if (null != objChatInputField)
+		{
+			return objChatInputField.GetComponent<InputField>().isFocused;
+		}
+
+		return false;
+	}
 
     public void TestItems()
     {

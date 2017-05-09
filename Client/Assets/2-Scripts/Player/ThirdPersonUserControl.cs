@@ -152,10 +152,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         bool BlockMovement()
         {
-            GameObject obj = GameObject.FindWithTag("ChatInputField");
-            if (null != obj)
+			GameObject objChatInputField = GameObject.FindWithTag("ChatInputField");
+			if (null != objChatInputField)
             {
-                return obj.GetComponent<InputField>().isFocused;
+				return objChatInputField.GetComponent<InputField>().isFocused;
             }
 
            

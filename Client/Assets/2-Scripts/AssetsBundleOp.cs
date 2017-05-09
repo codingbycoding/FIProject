@@ -15,13 +15,13 @@ public class AssetsBundleOp : MonoBehaviour {
     bool downloadDone;
 
 	string baseBundleURL; 
-	string bundleURL; 
+	string bundleURL;
 
 	// Use this for initialization
     void Start () {		
-		baseBundleURL = "http://" + DataMaster.GameClient.OnlineIP + ":8080/FIProject_AssetBundles/scenes/";
-		string assetBundleSceneName = "assetbundle_serverscene_1";
-		bundleURL = baseBundleURL + assetBundleSceneName;
+		
+
+
         Transform bgProgress = transform.FindChild("AB_Scene_1_bg");
         bgImage = bgProgress.GetComponent<Image>();
 
@@ -35,18 +35,16 @@ public class AssetsBundleOp : MonoBehaviour {
 		//CheckCached(assetBundleSceneName);
     }
 
-	public void CheckCached(string assetBundleSceneName)
+	public void CheckCached(string assetBundleSceneName, string sceneLabelName)
     {
 		if (0 == transform.GetSiblingIndex ()) {
 			return;
 		}
+	
+		baseBundleURL = "http://" + DataMaster.GameClient.OnlineIP + ":8080/FIProject_AssetBundles/scenes/";
+		bundleURL = baseBundleURL + assetBundleSceneName;
 
-
-		if(!assetBundleSceneName.Equals("")) {
-			bundleURL = baseBundleURL + assetBundleSceneName;
-		}
-
-		transform.FindChild("AssetBundleSceneName").GetComponent<Text>().text = assetBundleSceneName;
+		transform.FindChild("AssetBundleSceneName").GetComponent<Text>().text = sceneLabelName;
 
         if(Caching.IsVersionCached(bundleURL, 0))
         {
@@ -89,12 +87,12 @@ public class AssetsBundleOp : MonoBehaviour {
 
         stateIndicator.text = "Loading...";
 
-        StartCoroutine(DownloadAssetBundle_Scene_1(bundleURL));
+        StartCoroutine(DownloadAssetBundle_Scene_1());
     }
 
-    IEnumerator DownloadAssetBundle_Scene_1(string bundleURL)
+	IEnumerator DownloadAssetBundle_Scene_1()
     {
-        Debug.Log("DownloadAssetBundle_Scene_1 :" + bundleURL);
+        Debug.Log("DownloadAssetBundle Scene:" + bundleURL);
         // Wait for the Caching system to be ready
         while (!Caching.ready)
             yield return null;

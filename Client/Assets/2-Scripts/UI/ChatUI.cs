@@ -86,7 +86,7 @@ public class ChatUI : MonoBehaviour {
 
 			chatWarning.SetActive (false);
 
-			if (symbolStr.Equals ("/")) {
+			if (inputField.text.StartsWith ("/list")) {
 				string[] userList = gameClient.chatManager.GetOnlineUserList ();
 
 				string strUsers = "";
