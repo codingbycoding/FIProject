@@ -12,23 +12,15 @@ public class ServerListMgr : MonoBehaviour {
     private RectTransform parentPanel;
     public Button restoreButtonFab;
 
-	private Dictionary<string, string> serverLabelNameDict;
-
     // Use this for initialization
     void Start () {
         gameClient = DataMaster.GameClient;
-
-		serverLabelNameDict = new Dictionary<string, string> ();
-		serverLabelNameDict.Add ("City", "ServerScene_City");
-		serverLabelNameDict.Add ("RoomInside", "ServerScene_RoomInside");
-		serverLabelNameDict.Add ("GrassBridge", "ServerScene_GrassBridge");
-		serverLabelNameDict.Add ("GrassHouse", "assetbundle_serverscene_grasshouse");
 
         parentPanel = GameObject.Find("ServerListPanel").GetComponent<RectTransform>(); 
 
         int index = 0;
 
-		foreach(string serverLabelName in serverLabelNameDict.Keys) {
+		foreach(string serverLabelName in gameClient.serverLabelNameDict.Keys) {
 			bool bMatched = false;
 
 			Button bt = Instantiate<Button>(servEntryButtonFab, new Vector3(0, -60.0f-80.0f*index++, 0), Quaternion.identity);
@@ -59,11 +51,11 @@ public class ServerListMgr : MonoBehaviour {
 				bt.transform.FindChild("ServerStatus").GetComponent<Text> ().color = Color.red;
 			}
 
-			if(serverLabelNameDict[serverLabelName].Length > 11 
-				&& serverLabelNameDict[serverLabelName].Substring (0, 11).Equals("assetbundle")) {
+			if(gameClient.serverLabelNameDict[serverLabelName].Length > 11 
+				&& gameClient.serverLabelNameDict[serverLabelName].Substring (0, 11).Equals("assetbundle")) {
 				bt.transform.FindChild ("AssetBundle").SetAsLastSibling ();
 				AssetsBundleOp assetsBundleOp = bt.transform.FindChild ("AssetBundle").gameObject.GetComponent<AssetsBundleOp> ();
-				assetsBundleOp.CheckCached(serverLabelNameDict[serverLabelName], serverLabelName);
+				assetsBundleOp.CheckCached(gameClient.serverLabelNameDict[serverLabelName], serverLabelName);
 			}
 
 		}

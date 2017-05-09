@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 
+using es.upm.fi.rmi;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
@@ -135,20 +136,54 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             Debug.Log("OnTriggerEnter other.gameObject.tag:" + other.gameObject.tag);
 
-            RpcJump2AnotherServer(other.gameObject.tag);
-            Debug.Log("Jumping to another server...");
+
+			//RpcJump2AnotherServer(other.gameObject.tag);
+
+			GameObject obj = other.transform.FindChild("JumpLabel").gameObject;
+			if (obj != null) {
+				string jumpLable = obj.GetComponent<TextMesh>().text;
+				RpcJump2AnotherServerNew (jumpLable);
+			} else {
+				Debug.LogError ("Cannot find JumpLable object");
+			}
+
+            Debug.Log("Jumping to another server ...");
         }
 
 
-        [ClientRpc]
-        void RpcJump2AnotherServer(string jumpTag)
-        {
-            string servIP = Util.JumpTag2ServIP(jumpTag);
-            int servPort = Util.JumpTag2ServPort(jumpTag);
-            string cookie = Util.JumpTag2Cookie(jumpTag);
-            gameClient.ConnectGameServer(servIP, servPort, cookie);
-        }
+//        [ClientRpc]
+//        void RpcJump2AnotherServer(string jumpTag)
+//        {
+//            string servIP = Util.JumpTag2ServIP(jumpTag);
+//            int servPort = Util.JumpTag2ServPort(jumpTag);
+//            string cookie = Util.JumpTag2Cookie(jumpTag);
+//
+//            gameClient.ConnectGameServer(servIP, servPort, cookie);
+//        }
 
+		[ClientRpc]
+		void RpcJump2AnotherServerNew(string jumpLable)
+		{
+			string cookie = gameClient.currentServerLabelName;
+
+			bool bFound = false;
+			foreach (ServerEntry serverEntry in gameClient.servInfo.serverInfoSeq) {
+				if (serverEntry.name.Equals(jumpLable)) {
+
+					string[]  strIPAndPort = serverEntry.servAddr.Split(':');
+					string servIP = strIPAndPort[0];
+					int servPort = Int32.Parse(strIPAndPort[1]);
+					gameClient.ConnectGameServer (servIP, servPort, cookie);
+					gameClient.currentServerLabelName = jumpLable;
+					bFound = true;
+					break;
+				}
+			}
+
+			if (!bFound) {
+				Debug.LogError ("Server " + jumpLable + " not found");
+			} 
+		}
 
         bool BlockMovement()
         {

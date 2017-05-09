@@ -27,6 +27,12 @@ public class GameClient : BaseNetworkGameManager {
     public AvatarManager avatarManager;
     public DsManager dsManager;
     public ChatManager chatManager;
+
+	public string currentServerLabelName;
+
+
+	public Dictionary<string, string> serverLabelNameDict;
+	public Dictionary<string, string> sceneNameDict;
     // Use this for initialization
     void Start() {
         avatarPanel = GameObject.Find("AvatarPanel").GetComponent<AvatarPanel>();
@@ -34,6 +40,18 @@ public class GameClient : BaseNetworkGameManager {
         restoreFlag = false;
         DataMaster.GameClient = this;
         cookie = "defaultCookie";
+
+		serverLabelNameDict = new Dictionary<string, string> ();
+		serverLabelNameDict.Add ("City", "ServerScene_City");
+		serverLabelNameDict.Add ("RoomInside", "ServerScene_RoomInside");
+		serverLabelNameDict.Add ("GrassBridge", "ServerScene_GrassBridge");
+		serverLabelNameDict.Add ("GrassHouse", "assetbundle_serverscene_grasshouse");
+
+		sceneNameDict = new Dictionary<string, string> ();
+		sceneNameDict.Add ("ServerScene_City", "City");
+		sceneNameDict.Add ("ServerScene_RoomInside", "RoomInside");
+		sceneNameDict.Add ("ServerScene_GrassBridge", "GrassBridge");
+		sceneNameDict.Add ("assetbundle_serverscene_grasshouse", "GrassHouse");
     }
 
 	void OnDestroy() {
@@ -169,6 +187,8 @@ public class GameClient : BaseNetworkGameManager {
         if(LoginState.ACCEPT == scLoginMessage.loginState)
         {
             asyncSceneLoad = SceneManager.LoadSceneAsync(scLoginMessage.sceneName);
+			currentServerLabelName = sceneNameDict[scLoginMessage.sceneName];
+
             StartCoroutine(CheckLoadState());
             
         } else if(LoginState.REJECT == scLoginMessage.loginState)

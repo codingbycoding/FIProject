@@ -309,7 +309,8 @@ public class GameServer : BaseNetworkGameManager {
             return;
         } 
 
-        GameObject posObj = GameObject.Find(csLoginMessage.cookie);
+		GameObject objJumpPoints = GameObject.Find ("JumpPoints");
+		Transform posTransform = objJumpPoints.transform.FindChild("JumpPoint" + csLoginMessage.cookie + "/pos");
         GameObject avatar = null;
 
         if (csLoginMessage.restoreFlag)
@@ -326,9 +327,9 @@ public class GameServer : BaseNetworkGameManager {
                     position.y,
                     position.z));
         }
-        else if (null != posObj)
+		else if (null != posTransform)
         {
-            avatar = Instantiate(avatarPrefabs[csLoginMessage.avatarId], posObj.transform.position, posObj.transform.rotation) as GameObject;
+			avatar = Instantiate(avatarPrefabs[csLoginMessage.avatarId], posTransform.position, posTransform.rotation) as GameObject;
         }
         else
         {
