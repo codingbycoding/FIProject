@@ -33,6 +33,7 @@ public class GameClient : BaseNetworkGameManager {
 
 	public Dictionary<string, string> serverLabelNameDict;
 	public Dictionary<string, string> sceneNameDict;
+	public Dictionary<string, ServerEntry> serverLabelName2AddrDict;
     // Use this for initialization
     void Start() {
         avatarPanel = GameObject.Find("AvatarPanel").GetComponent<AvatarPanel>();
@@ -52,6 +53,8 @@ public class GameClient : BaseNetworkGameManager {
 		sceneNameDict.Add ("ServerScene_RoomInside", "RoomInside");
 		sceneNameDict.Add ("ServerScene_GrassBridge", "GrassBridge");
 		sceneNameDict.Add ("assetbundle_serverscene_grasshouse", "GrassHouse");
+
+		serverLabelName2AddrDict = new Dictionary<string, ServerEntry> ();
     }
 
 	void OnDestroy() {

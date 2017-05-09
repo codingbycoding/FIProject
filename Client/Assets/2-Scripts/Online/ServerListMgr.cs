@@ -38,6 +38,7 @@ public class ServerListMgr : MonoBehaviour {
 					servEntryButton.setServIP(strIPAndPort[0]);
 					servEntryButton.setServPort(Int32.Parse(strIPAndPort[1]));
 
+					gameClient.serverLabelName2AddrDict[servEntry.name] = servEntry;
 					Debug.Log(servEntry.name + "  " + servEntry.servAddr);
 
 					bMatched = true;

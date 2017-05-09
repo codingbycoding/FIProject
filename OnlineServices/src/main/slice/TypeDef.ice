@@ -40,6 +40,7 @@ module es
 				struct ServerEntry
 				{
 					//example: "192.168.1.200:30000"
+					string serverName;
 					string servAddr;
 					string name;
 				};

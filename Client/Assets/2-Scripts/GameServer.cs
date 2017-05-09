@@ -32,6 +32,9 @@ public class GameServer : BaseNetworkGameManager {
     [SerializeField]
     private int maxPlayersNum = 20;
 
+	public string SceneLabelName {
+		get { return sceneLabelName; }
+	}
     //private ItemsFab itemsFab;
     // Use this for initialization
     void Start() {

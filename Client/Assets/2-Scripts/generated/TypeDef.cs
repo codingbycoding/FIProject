@@ -459,6 +459,9 @@ namespace es
                     #region Slice data members
 
                     [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
+                    public string serverName;
+
+                    [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                     public string servAddr;
 
                     [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
@@ -471,13 +474,15 @@ namespace es
                     [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                     public ServerEntry()
                     {
+                        serverName = "";
                         servAddr = "";
                         name = "";
                     }
 
                     [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
-                    public ServerEntry(string servAddr, string name)
+                    public ServerEntry(string serverName, string servAddr, string name)
                     {
+                        this.serverName = serverName;
                         this.servAddr = servAddr;
                         this.name = name;
                     }
@@ -501,6 +506,7 @@ namespace es
                     {
                         int h__ = 5381;
                         IceInternal.HashUtil.hashAdd(ref h__, "::es::upm::fi::rmi::ServerEntry");
+                        IceInternal.HashUtil.hashAdd(ref h__, serverName);
                         IceInternal.HashUtil.hashAdd(ref h__, servAddr);
                         IceInternal.HashUtil.hashAdd(ref h__, name);
                         return h__;
@@ -522,6 +528,20 @@ namespace es
                             return false;
                         }
                         ServerEntry o__ = (ServerEntry)other__;
+                        if(serverName == null)
+                        {
+                            if(o__.serverName != null)
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            if(!serverName.Equals(o__.serverName))
+                            {
+                                return false;
+                            }
+                        }
                         if(servAddr == null)
                         {
                             if(o__.servAddr != null)
@@ -576,6 +596,7 @@ namespace es
                     [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                     public void write__(IceInternal.BasicStream os__)
                     {
+                        os__.writeString(serverName);
                         os__.writeString(servAddr);
                         os__.writeString(name);
                     }
@@ -583,6 +604,7 @@ namespace es
                     [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                     public void read__(IceInternal.BasicStream is__)
                     {
+                        serverName = is__.readString();
                         servAddr = is__.readString();
                         name = is__.readString();
                     }
@@ -2696,7 +2718,7 @@ namespace es
                     {
                         es.upm.fi.rmi.ServerEntry[] v__;
                         {
-                            int szx__ = is__.readAndCheckSeqSize(2);
+                            int szx__ = is__.readAndCheckSeqSize(3);
                             v__ = new es.upm.fi.rmi.ServerEntry[szx__];
                             for(int ix__ = 0; ix__ < szx__; ++ix__)
                             {

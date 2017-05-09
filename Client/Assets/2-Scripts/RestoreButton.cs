@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using es.upm.fi.rmi;
+
 // RestoreButton attachs to a button to restore player's last state(position, rotation...)
 public class RestoreButton : MonoBehaviour {
 
@@ -21,7 +23,15 @@ public class RestoreButton : MonoBehaviour {
         GameClient  gameClient = DataMaster.GameClient;
         gameClient.restoreFlag = true;
 
-        string[] strIPAndPort = gameClient.restoreServEntry.servAddr.Split(':');
+		if(!gameClient.serverLabelName2AddrDict.ContainsKey(gameClient.restoreServEntry.serverName)) {
+			Debug.LogError("Server " + gameClient.restoreServEntry.serverName + " not exists or is not online");
+			return;
+		}
+
+		ServerEntry serverEntry = gameClient.serverLabelName2AddrDict[gameClient.restoreServEntry.serverName];
+		string[] strIPAndPort =  serverEntry.servAddr.Split(':');
+
+        //string[] strIPAndPort = gameClient.restoreServEntry.servAddr.Split(':');
 
         int servPort = System.Int32.Parse(strIPAndPort[1]);
         string servIP = strIPAndPort[0];

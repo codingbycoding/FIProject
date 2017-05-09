@@ -31,12 +31,13 @@ public class PlayerCommand : NetworkBehaviour {
         GameServer gameServer = DataMaster.GameServer;
 
         AvatarState avatarState = new AvatarState();
+
         avatarState.position = DataUtils.ToRmiPosition(transform.position);
         avatarState.rotation = DataUtils.ToRmiRotation(transform.rotation);
 
         string servIPPort = gameServer.networkAddress;
         servIPPort += ":" + gameServer.networkPort;
-        avatarState.serverEntry = new ServerEntry(servIPPort, NetworkManager.networkSceneName);
+		avatarState.serverEntry = new ServerEntry(gameServer.SceneLabelName, servIPPort, NetworkManager.networkSceneName);
 
         GamePlayer gamePlayer = GetComponent<GamePlayer>();
         gameServer.avatarManager.UpdateAvatar(gamePlayer.UserName, avatarState);

@@ -612,7 +612,7 @@ namespace es
                     {
                         es.upm.fi.rmi.AvatarProfile[] v__;
                         {
-                            int szx__ = is__.readAndCheckSeqSize(32);
+                            int szx__ = is__.readAndCheckSeqSize(33);
                             v__ = new es.upm.fi.rmi.AvatarProfile[szx__];
                             for(int ix__ = 0; ix__ < szx__; ++ix__)
                             {
