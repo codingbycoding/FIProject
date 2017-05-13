@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AssetsBundleOp : MonoBehaviour {
 
-    AssetBundle assetBundleScene;
+    //AssetBundle assetBundleScene;
     float downloadProgress;
 
     Image bgImage;
@@ -53,6 +54,7 @@ public class AssetsBundleOp : MonoBehaviour {
 			transform.SetAsFirstSibling ();
         }
     }
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -110,12 +112,12 @@ public class AssetsBundleOp : MonoBehaviour {
             //yield return www;
             if (www.error != null)
                 throw new Exception("WWW download had an error:" + www.error);
-            if (null != assetBundleScene)
-            {
-                assetBundleScene.Unload(false);
-            }
+//            if (null != assetBundleScene)
+//            {
+//                assetBundleScene.Unload(false);
+//            }
 
-            assetBundleScene = www.assetBundle;
+            //assetBundleScene = www.assetBundle;
 
             //Instantiate(bundle.LoadAsset(AssetName));
             // Unload the AssetBundles compressed contents to conserve memory
@@ -129,4 +131,7 @@ public class AssetsBundleOp : MonoBehaviour {
 
 
     }
+
+
+
 }

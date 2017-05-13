@@ -313,7 +313,11 @@ public class GameServer : BaseNetworkGameManager {
         } 
 
 		GameObject objJumpPoints = GameObject.Find ("JumpPoints");
-		Transform posTransform = objJumpPoints.transform.FindChild("JumpPoint" + csLoginMessage.cookie + "/pos");
+		Transform posTransform = null;
+		if(null != objJumpPoints) {
+			posTransform = objJumpPoints.transform.FindChild("JumpPoint" + csLoginMessage.cookie + "/pos");
+		}
+
         GameObject avatar = null;
 
         if (csLoginMessage.restoreFlag)

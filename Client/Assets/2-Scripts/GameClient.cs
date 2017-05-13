@@ -1,10 +1,12 @@
-﻿using es.upm.fi.rmi;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
+using es.upm.fi.rmi;
 
 // GameClient only exists on game client just like GameServer only exists on game server.
 public class GameClient : BaseNetworkGameManager {
@@ -30,6 +32,7 @@ public class GameClient : BaseNetworkGameManager {
 
 	public string currentServerLabelName;
 
+	private AssetBundle assetBundleScene;
 
 	public Dictionary<string, string> serverLabelNameDict;
 	public Dictionary<string, string> sceneNameDict;
@@ -189,10 +192,16 @@ public class GameClient : BaseNetworkGameManager {
 
         if(LoginState.ACCEPT == scLoginMessage.loginState)
         {
-            asyncSceneLoad = SceneManager.LoadSceneAsync(scLoginMessage.sceneName);
-			currentServerLabelName = sceneNameDict[scLoginMessage.sceneName];
+			if (scLoginMessage.sceneName.Substring (0, 11).Equals ("assetbundle")) {
 
-            StartCoroutine(CheckLoadState());
+				StartCoroutine(LoadAssetBundleScene(scLoginMessage.sceneName));
+
+			} else {
+				asyncSceneLoad = SceneManager.LoadSceneAsync(scLoginMessage.sceneName);
+				currentServerLabelName = sceneNameDict[scLoginMessage.sceneName];
+
+				StartCoroutine(CheckLoadState());
+			}           
             
         } else if(LoginState.REJECT == scLoginMessage.loginState)
         {
@@ -202,6 +211,48 @@ public class GameClient : BaseNetworkGameManager {
         Debug.Log(string.Format("SC_Login scLoginMessage:{0}", scLoginMessage.loginState));
 
     }
+
+
+
+	IEnumerator LoadAssetBundleScene(string sceneName)
+	{
+		string bundleURL = "http://" + onlineIP + ":8080/FIProject_AssetBundles/scenes/" + sceneName;
+		Debug.Log("LoadAssetBundleScene Scene:" + bundleURL);
+
+
+		// Wait for the Caching system to be ready
+		while (!Caching.ready)
+			yield return null;
+
+		if (null != assetBundleScene)
+		{
+			assetBundleScene.Unload(true);
+		}
+
+		// Load the AssetBundle file from Cache if it exists with the same version or download and store it in the cache
+		using (WWW www = WWW.LoadFromCacheOrDownload(bundleURL, 0))
+		{
+			while (!www.isDone)
+			{				
+				yield return null;
+			}
+				
+			//yield return www;
+			if (www.error != null)
+				throw new Exception("WWW download had an error:" + www.error);
+
+
+			assetBundleScene = www.assetBundle;
+
+		} 
+
+		asyncSceneLoad = SceneManager.LoadSceneAsync(sceneName);
+		currentServerLabelName = sceneNameDict[sceneName];
+		StartCoroutine(CheckLoadState());
+	}
+
+
+
 
     void SC_PlayerReady(NetworkMessage netMsg)
     {
@@ -269,5 +320,9 @@ public class GameClient : BaseNetworkGameManager {
         }
 
     }
+
+	public void Logout() {
+		onlineManager.Logout();
+	}
 
 }

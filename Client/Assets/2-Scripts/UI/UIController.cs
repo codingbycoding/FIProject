@@ -14,8 +14,6 @@ public class UIController : MonoBehaviour {
 		chatInputField = GameObject.Find("ChatPanel/ChatInputField").GetComponent<InputField>();
 
         gbChatPanel.SetActive(false);
-
-
 	}
 	
 	// Update is called once per frame
@@ -31,8 +29,10 @@ public class UIController : MonoBehaviour {
             {
                 gbChatPanel.SetActive(false);
             }
-
             
         }
+
 	}
+
+
 }

@@ -43,6 +43,8 @@ public class OptionalMenu : MonoBehaviour {
             exitButton.gameObject.SetActive(true);
         }
     }
+
+
     
 
     void GameExit()
