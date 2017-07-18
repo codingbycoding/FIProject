@@ -32,18 +32,6 @@ CREATE TABLE IF NOT EXISTS auth_tbl (
     PRIMARY KEY (avatar_id)
 ) ENGINE = InnoDB;
 
-
-CREATE TABLE IF NOT EXISTS inventory_folders_tbl (
-    folder_name VARCHAR(64),
-    type INTEGER,
-    version INTEGER,
-    folder_id VARCHAR(36) PRIMARY KEY,
-    avatar_id VARCHAR(36) NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000',
-    parent_folder_id VARCHAR(36) NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000'
-) ENGINE = InnoDB;
-	   
-CREATE INDEX inventoryfolders_avatarid ON inventory_folders_tbl(avatar_id);
-CREATE INDEX inventoryfolders_folderid ON inventory_folders_tbl(folder_id);
 	   
 	   
 CREATE TABLE IF NOT EXISTS inventory_items_tbl (
@@ -58,6 +46,3 @@ CREATE TABLE IF NOT EXISTS inventory_items_tbl (
     item_state MEDIUMBLOB COMMENT 'To customize dynamic state of the item',
 	PRIMARY KEY (avatar_id, item_id)
 ) ENGINE = InnoDB;
-	
-
-

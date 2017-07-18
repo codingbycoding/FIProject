@@ -21,20 +21,6 @@ public class ClientNotification : MessageNotificationDisp_
         gameClient = networkController;
     }
 
-    public override void OnAutoJoinedChannel(ChannelInfo info, Current current__)
-    {
-        throw new NotImplementedException();
-    }
-
-    public override void OnKeepAliveCheck(Current current__)
-    {
-        throw new NotImplementedException();
-    }
-
-    public override void OnReceiveInformation(SendInformationInfo info, Current current__)
-    {
-        throw new NotImplementedException();
-    }
 
     public override void OnReceiveMessage(Message[] msgSeq, Current current__)
     {
@@ -46,10 +32,6 @@ public class ClientNotification : MessageNotificationDisp_
             gameClient.chatManager.OnReceiveMessage(msg);
         }
     }
-
-    public override void OnReceiveNotice(NoticeInfo info, Current current__)
-    {
-        throw new NotImplementedException();
-    }
+		
 }
 

@@ -29,6 +29,7 @@ public class GameClient : BaseNetworkGameManager {
     public AvatarManager avatarManager;
     public DsManager dsManager;
     public ChatManager chatManager;
+	public InventoryManager inventoryManager;
 
 	public string currentServerLabelName;
 
@@ -74,27 +75,39 @@ public class GameClient : BaseNetworkGameManager {
 		get { return onlineIP; }
 	}
 
-    public void ConnectGameServer(string serverIp, int serverPort, string cookie)
-    {
+	public void ConnectGameServer(string serverIp, int serverPort, string cookie="", bool bClear=false)
+    {		
+		if (bClear) {
+			ClearInventory();
+		}
+
         this.cookie = cookie;
-        ConnectGameServer(serverIp, serverPort);
+		ConnectGameServer (serverIp, serverPort);
     }
 
-    public void ConnectGameServer(string serverIp, int serverPort)
+	//clear 
+	private void ClearInventory() 
+	{				
+		Debug.Log("ClearInventory");
+		inventoryManager.Delete();
+
+	}
+
+    private void ConnectGameServer(string serverIp, int serverPort)
     {
-        networkAddress = serverIp;
-        networkPort = serverPort;
+		networkAddress = serverIp;
+		networkPort = serverPort;
 
-        if(isNetworkActive)
-        {
-            StopClient();
-        }
+		if(isNetworkActive)
+		{
+			StopClient();
+		}
 
-        StartClient();
+		StartClient();
 
-        RegisterClientHandlers();
+		RegisterClientHandlers();
 
-        PrintClientRegisteredMsg();
+		PrintClientRegisteredMsg();
     }
 
     void RegisterClientHandlers()
@@ -238,8 +251,10 @@ public class GameClient : BaseNetworkGameManager {
 			}
 				
 			//yield return www;
-			if (www.error != null)
-				throw new Exception("WWW download had an error:" + www.error);
+
+
+//			if (!string.IsNullOrEmpty(www.error))
+//				throw new Exception("WWW download had an error:" + www.error);
 
 
 			assetBundleScene = www.assetBundle;
@@ -301,7 +316,7 @@ public class GameClient : BaseNetworkGameManager {
     private void GetInventory()
     {
         InventoryUI inventoryUI = GameObject.Find("Canvas").GetComponent<InventoryUI>();
-        InventoryManager inventoryManager = InventoryManager.GetInstance();
+		inventoryManager = InventoryManager.GetInstance();
         inventoryManager.SetInventoryUI(inventoryUI);
         inventoryManager.GetInventory();
     }
@@ -322,6 +337,8 @@ public class GameClient : BaseNetworkGameManager {
     }
 
 	public void Logout() {
+
+		ClearInventory();
 		onlineManager.Logout();
 	}
 

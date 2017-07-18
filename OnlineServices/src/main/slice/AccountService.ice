@@ -34,13 +34,11 @@ module es
 
 				interface AccountService
 				{
-					void KeepAlive(long sid);
+
 					void CreateAccount( AccountProfile profile ) throws AccountHasAlreadyExisted;
-					AccountProfile GetCurrentAccount(long sid) throws AccountDoesnotExist;
 					AccountProfile GetAccountByName( string name ) throws AccountDoesnotExist;
-					AccountProfile GetAccountByUid( int uid ) throws AccountDoesnotExist;
-					void DestroyAccountByName( string name ) throws AccountDoesnotExist;
-					void DestroyAccountByUid( int uid ) throws AccountDoesnotExist;
+
+
 				};
 			};
 		};

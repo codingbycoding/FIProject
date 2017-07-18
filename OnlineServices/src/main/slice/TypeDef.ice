@@ -10,32 +10,11 @@ module es
 			module rmi
 			{
 
-				enum MatchNotificationType
-				{
-					MNTStartMatch,
-					MNTMatchReady
-				};
-
 				struct URL
 				{
 					string 			IP;
 					int 			Port;
 				};
-
-                sequence<byte>                      byteSeqT;
-                sequence<short>                     shortSeqT;
-                sequence<int>                       intSeqT;
-                sequence<long>                      longSeqT;
-                sequence<string>                    strSeqT;
-
-			    struct BaseInfoStream
-                {
-                    byteSeqT                            byteSeq;
-                    shortSeqT                           shortSeq;
-                    intSeqT                             intSeq;
-                    longSeqT                            longSeq;
-                    strSeqT                             strSeq;
-                };
 			
 				struct ServerEntry
 				{
@@ -100,27 +79,12 @@ module es
                 {
                 };
 
-                exception LoginQueued extends PaseoException
-                {
-                };
-
                 exception UserDoesnotOnline extends PaseoException
                 {
                 };
 
-				exception CharacterNotExisted extends PaseoException
-				{
-				};
-
-                exception OperateFailed extends PaseoException
-                {
-                };
 
                 exception DataError extends PaseoException
-                {
-                };
-
-				exception UserHasNotAuthority extends PaseoException
                 {
                 };
 

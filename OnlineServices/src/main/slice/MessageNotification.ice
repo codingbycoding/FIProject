@@ -24,11 +24,7 @@ module es
 				
 				interface MessageNotification extends NotificationBase
 				{
-                    void OnAutoJoinedChannel(ChannelInfo info);
 					void OnReceiveMessage(MessageSeq msgSeq);
-					void OnKeepAliveCheck();
-					void OnReceiveNotice(NoticeInfo info);
-					void OnReceiveInformation(SendInformationInfo info);
 				};
 			};
 		};

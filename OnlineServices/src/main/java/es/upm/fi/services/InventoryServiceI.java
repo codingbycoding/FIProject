@@ -34,7 +34,7 @@ public class InventoryServiceI extends _InventoryServiceDisp {
             items[i++] = new RmiItem(inventoryEntity.getId().getItem_id(), inventoryEntity.getItem_count());
         }
 
-        UTLogger.info("updateItem username: " + user.getName() + " itemSize: " + inventoryEntityList.size());
+        UTLogger.info("getInventory username: " + user.getName() + " itemSize: " + inventoryEntityList.size());
 
         return new RmiInventory(items);
     }

@@ -641,25 +641,10 @@ namespace es
             namespace rmi
             {
                 [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
-                public delegate void Callback_AccountService_KeepAlive();
-
-                [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                 public delegate void Callback_AccountService_CreateAccount();
 
                 [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
-                public delegate void Callback_AccountService_GetCurrentAccount(es.upm.fi.rmi.AccountProfile ret__);
-
-                [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                 public delegate void Callback_AccountService_GetAccountByName(es.upm.fi.rmi.AccountProfile ret__);
-
-                [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
-                public delegate void Callback_AccountService_GetAccountByUid(es.upm.fi.rmi.AccountProfile ret__);
-
-                [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
-                public delegate void Callback_AccountService_DestroyAccountByName();
-
-                [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
-                public delegate void Callback_AccountService_DestroyAccountByUid();
             }
         }
     }
@@ -676,20 +661,6 @@ namespace es
                 [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                 public interface AccountServicePrx : Ice.ObjectPrx
                 {
-                    void KeepAlive(long sid);
-
-                    void KeepAlive(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_KeepAlive> begin_KeepAlive(long sid);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_KeepAlive> begin_KeepAlive(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult begin_KeepAlive(long sid, Ice.AsyncCallback cb__, object cookie__);
-
-                    Ice.AsyncResult begin_KeepAlive(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
-
-                    void end_KeepAlive(Ice.AsyncResult r__);
-
                     void CreateAccount(es.upm.fi.rmi.AccountProfile profile);
 
                     void CreateAccount(es.upm.fi.rmi.AccountProfile profile, _System.Collections.Generic.Dictionary<string, string> ctx__);
@@ -704,20 +675,6 @@ namespace es
 
                     void end_CreateAccount(Ice.AsyncResult r__);
 
-                    es.upm.fi.rmi.AccountProfile GetCurrentAccount(long sid);
-
-                    es.upm.fi.rmi.AccountProfile GetCurrentAccount(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_GetCurrentAccount> begin_GetCurrentAccount(long sid);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_GetCurrentAccount> begin_GetCurrentAccount(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult begin_GetCurrentAccount(long sid, Ice.AsyncCallback cb__, object cookie__);
-
-                    Ice.AsyncResult begin_GetCurrentAccount(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
-
-                    es.upm.fi.rmi.AccountProfile end_GetCurrentAccount(Ice.AsyncResult r__);
-
                     es.upm.fi.rmi.AccountProfile GetAccountByName(string name);
 
                     es.upm.fi.rmi.AccountProfile GetAccountByName(string name, _System.Collections.Generic.Dictionary<string, string> ctx__);
@@ -731,48 +688,6 @@ namespace es
                     Ice.AsyncResult begin_GetAccountByName(string name, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
 
                     es.upm.fi.rmi.AccountProfile end_GetAccountByName(Ice.AsyncResult r__);
-
-                    es.upm.fi.rmi.AccountProfile GetAccountByUid(int uid);
-
-                    es.upm.fi.rmi.AccountProfile GetAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_GetAccountByUid> begin_GetAccountByUid(int uid);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_GetAccountByUid> begin_GetAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult begin_GetAccountByUid(int uid, Ice.AsyncCallback cb__, object cookie__);
-
-                    Ice.AsyncResult begin_GetAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
-
-                    es.upm.fi.rmi.AccountProfile end_GetAccountByUid(Ice.AsyncResult r__);
-
-                    void DestroyAccountByName(string name);
-
-                    void DestroyAccountByName(string name, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByName> begin_DestroyAccountByName(string name);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByName> begin_DestroyAccountByName(string name, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult begin_DestroyAccountByName(string name, Ice.AsyncCallback cb__, object cookie__);
-
-                    Ice.AsyncResult begin_DestroyAccountByName(string name, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
-
-                    void end_DestroyAccountByName(Ice.AsyncResult r__);
-
-                    void DestroyAccountByUid(int uid);
-
-                    void DestroyAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByUid> begin_DestroyAccountByUid(int uid);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByUid> begin_DestroyAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult begin_DestroyAccountByUid(int uid, Ice.AsyncCallback cb__, object cookie__);
-
-                    Ice.AsyncResult begin_DestroyAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
-
-                    void end_DestroyAccountByUid(Ice.AsyncResult r__);
                 }
             }
         }
@@ -790,37 +705,17 @@ namespace es
                 [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                 public interface AccountServiceOperations_
                 {
-                    void KeepAlive(long sid, Ice.Current current__);
-
                     void CreateAccount(es.upm.fi.rmi.AccountProfile profile, Ice.Current current__);
 
-                    es.upm.fi.rmi.AccountProfile GetCurrentAccount(long sid, Ice.Current current__);
-
                     es.upm.fi.rmi.AccountProfile GetAccountByName(string name, Ice.Current current__);
-
-                    es.upm.fi.rmi.AccountProfile GetAccountByUid(int uid, Ice.Current current__);
-
-                    void DestroyAccountByName(string name, Ice.Current current__);
-
-                    void DestroyAccountByUid(int uid, Ice.Current current__);
                 }
 
                 [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                 public interface AccountServiceOperationsNC_
                 {
-                    void KeepAlive(long sid);
-
                     void CreateAccount(es.upm.fi.rmi.AccountProfile profile);
 
-                    es.upm.fi.rmi.AccountProfile GetCurrentAccount(long sid);
-
                     es.upm.fi.rmi.AccountProfile GetAccountByName(string name);
-
-                    es.upm.fi.rmi.AccountProfile GetAccountByUid(int uid);
-
-                    void DestroyAccountByName(string name);
-
-                    void DestroyAccountByUid(int uid);
                 }
             }
         }
@@ -857,38 +752,6 @@ namespace es
                         end_CreateAccount(begin_CreateAccount(profile, context__, explicitCtx__, true, null, null));
                     }
 
-                    public void DestroyAccountByName(string name)
-                    {
-                        this.DestroyAccountByName(name, null, false);
-                    }
-
-                    public void DestroyAccountByName(string name, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        this.DestroyAccountByName(name, ctx__, true);
-                    }
-
-                    private void DestroyAccountByName(string name, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
-                    {
-                        checkTwowayOnly__(__DestroyAccountByName_name);
-                        end_DestroyAccountByName(begin_DestroyAccountByName(name, context__, explicitCtx__, true, null, null));
-                    }
-
-                    public void DestroyAccountByUid(int uid)
-                    {
-                        this.DestroyAccountByUid(uid, null, false);
-                    }
-
-                    public void DestroyAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        this.DestroyAccountByUid(uid, ctx__, true);
-                    }
-
-                    private void DestroyAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
-                    {
-                        checkTwowayOnly__(__DestroyAccountByUid_name);
-                        end_DestroyAccountByUid(begin_DestroyAccountByUid(uid, context__, explicitCtx__, true, null, null));
-                    }
-
                     public es.upm.fi.rmi.AccountProfile GetAccountByName(string name)
                     {
                         return this.GetAccountByName(name, null, false);
@@ -903,53 +766,6 @@ namespace es
                     {
                         checkTwowayOnly__(__GetAccountByName_name);
                         return end_GetAccountByName(begin_GetAccountByName(name, context__, explicitCtx__, true, null, null));
-                    }
-
-                    public es.upm.fi.rmi.AccountProfile GetAccountByUid(int uid)
-                    {
-                        return this.GetAccountByUid(uid, null, false);
-                    }
-
-                    public es.upm.fi.rmi.AccountProfile GetAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        return this.GetAccountByUid(uid, ctx__, true);
-                    }
-
-                    private es.upm.fi.rmi.AccountProfile GetAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
-                    {
-                        checkTwowayOnly__(__GetAccountByUid_name);
-                        return end_GetAccountByUid(begin_GetAccountByUid(uid, context__, explicitCtx__, true, null, null));
-                    }
-
-                    public es.upm.fi.rmi.AccountProfile GetCurrentAccount(long sid)
-                    {
-                        return this.GetCurrentAccount(sid, null, false);
-                    }
-
-                    public es.upm.fi.rmi.AccountProfile GetCurrentAccount(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        return this.GetCurrentAccount(sid, ctx__, true);
-                    }
-
-                    private es.upm.fi.rmi.AccountProfile GetCurrentAccount(long sid, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
-                    {
-                        checkTwowayOnly__(__GetCurrentAccount_name);
-                        return end_GetCurrentAccount(begin_GetCurrentAccount(sid, context__, explicitCtx__, true, null, null));
-                    }
-
-                    public void KeepAlive(long sid)
-                    {
-                        this.KeepAlive(sid, null, false);
-                    }
-
-                    public void KeepAlive(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        this.KeepAlive(sid, ctx__, true);
-                    }
-
-                    private void KeepAlive(long sid, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
-                    {
-                        end_KeepAlive(begin_KeepAlive(sid, context__, explicitCtx__, true, null, null));
                     }
 
                     #endregion
@@ -1034,192 +850,6 @@ namespace es
                         try
                         {
                             end_CreateAccount(r__);
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            if(excb__ != null)
-                            {
-                                excb__(ex__);
-                            }
-                            return;
-                        }
-                        if(cb__ != null)
-                        {
-                            cb__();
-                        }
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByName> begin_DestroyAccountByName(string name)
-                    {
-                        return begin_DestroyAccountByName(name, null, false, false, null, null);
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByName> begin_DestroyAccountByName(string name, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        return begin_DestroyAccountByName(name, ctx__, true, false, null, null);
-                    }
-
-                    public Ice.AsyncResult begin_DestroyAccountByName(string name, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_DestroyAccountByName(name, null, false, false, cb__, cookie__);
-                    }
-
-                    public Ice.AsyncResult begin_DestroyAccountByName(string name, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_DestroyAccountByName(name, ctx__, true, false, cb__, cookie__);
-                    }
-
-                    private const string __DestroyAccountByName_name = "DestroyAccountByName";
-
-                    public void end_DestroyAccountByName(Ice.AsyncResult r__)
-                    {
-                        IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __DestroyAccountByName_name);
-                        try
-                        {
-                            if(!outAsync__.wait())
-                            {
-                                try
-                                {
-                                    outAsync__.throwUserException();
-                                }
-                                catch(es.upm.fi.rmi.AccountDoesnotExist)
-                                {
-                                    throw;
-                                }
-                                catch(Ice.UserException ex__)
-                                {
-                                    throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
-                                }
-                            }
-                            outAsync__.readEmptyParams();
-                        }
-                        finally
-                        {
-                            outAsync__.cacheMessageBuffers();
-                        }
-                    }
-
-                    private Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByName> begin_DestroyAccountByName(string name, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        checkAsyncTwowayOnly__(__DestroyAccountByName_name);
-                        IceInternal.TwowayOutgoingAsync<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByName> result__ =  getTwowayOutgoingAsync<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByName>(__DestroyAccountByName_name, DestroyAccountByName_completed__, cookie__);
-                        if(cb__ != null)
-                        {
-                            result__.whenCompletedWithAsyncCallback(cb__);
-                        }
-                        try
-                        {
-                            result__.prepare(__DestroyAccountByName_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
-                            IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
-                            os__.writeString(name);
-                            result__.endWriteParams();
-                            result__.invoke();
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            result__.abort(ex__);
-                        }
-                        return result__;
-                    }
-
-                    private void DestroyAccountByName_completed__(Ice.AsyncResult r__, es.upm.fi.rmi.Callback_AccountService_DestroyAccountByName cb__, Ice.ExceptionCallback excb__)
-                    {
-                        try
-                        {
-                            end_DestroyAccountByName(r__);
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            if(excb__ != null)
-                            {
-                                excb__(ex__);
-                            }
-                            return;
-                        }
-                        if(cb__ != null)
-                        {
-                            cb__();
-                        }
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByUid> begin_DestroyAccountByUid(int uid)
-                    {
-                        return begin_DestroyAccountByUid(uid, null, false, false, null, null);
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByUid> begin_DestroyAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        return begin_DestroyAccountByUid(uid, ctx__, true, false, null, null);
-                    }
-
-                    public Ice.AsyncResult begin_DestroyAccountByUid(int uid, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_DestroyAccountByUid(uid, null, false, false, cb__, cookie__);
-                    }
-
-                    public Ice.AsyncResult begin_DestroyAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_DestroyAccountByUid(uid, ctx__, true, false, cb__, cookie__);
-                    }
-
-                    private const string __DestroyAccountByUid_name = "DestroyAccountByUid";
-
-                    public void end_DestroyAccountByUid(Ice.AsyncResult r__)
-                    {
-                        IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __DestroyAccountByUid_name);
-                        try
-                        {
-                            if(!outAsync__.wait())
-                            {
-                                try
-                                {
-                                    outAsync__.throwUserException();
-                                }
-                                catch(es.upm.fi.rmi.AccountDoesnotExist)
-                                {
-                                    throw;
-                                }
-                                catch(Ice.UserException ex__)
-                                {
-                                    throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
-                                }
-                            }
-                            outAsync__.readEmptyParams();
-                        }
-                        finally
-                        {
-                            outAsync__.cacheMessageBuffers();
-                        }
-                    }
-
-                    private Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByUid> begin_DestroyAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        checkAsyncTwowayOnly__(__DestroyAccountByUid_name);
-                        IceInternal.TwowayOutgoingAsync<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByUid> result__ =  getTwowayOutgoingAsync<es.upm.fi.rmi.Callback_AccountService_DestroyAccountByUid>(__DestroyAccountByUid_name, DestroyAccountByUid_completed__, cookie__);
-                        if(cb__ != null)
-                        {
-                            result__.whenCompletedWithAsyncCallback(cb__);
-                        }
-                        try
-                        {
-                            result__.prepare(__DestroyAccountByUid_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
-                            IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
-                            os__.writeInt(uid);
-                            result__.endWriteParams();
-                            result__.invoke();
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            result__.abort(ex__);
-                        }
-                        return result__;
-                    }
-
-                    private void DestroyAccountByUid_completed__(Ice.AsyncResult r__, es.upm.fi.rmi.Callback_AccountService_DestroyAccountByUid cb__, Ice.ExceptionCallback excb__)
-                    {
-                        try
-                        {
-                            end_DestroyAccountByUid(r__);
                         }
                         catch(Ice.Exception ex__)
                         {
@@ -1331,261 +961,6 @@ namespace es
                         if(cb__ != null)
                         {
                             cb__(ret__);
-                        }
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_GetAccountByUid> begin_GetAccountByUid(int uid)
-                    {
-                        return begin_GetAccountByUid(uid, null, false, false, null, null);
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_GetAccountByUid> begin_GetAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        return begin_GetAccountByUid(uid, ctx__, true, false, null, null);
-                    }
-
-                    public Ice.AsyncResult begin_GetAccountByUid(int uid, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_GetAccountByUid(uid, null, false, false, cb__, cookie__);
-                    }
-
-                    public Ice.AsyncResult begin_GetAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_GetAccountByUid(uid, ctx__, true, false, cb__, cookie__);
-                    }
-
-                    private const string __GetAccountByUid_name = "GetAccountByUid";
-
-                    public es.upm.fi.rmi.AccountProfile end_GetAccountByUid(Ice.AsyncResult r__)
-                    {
-                        IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __GetAccountByUid_name);
-                        try
-                        {
-                            if(!outAsync__.wait())
-                            {
-                                try
-                                {
-                                    outAsync__.throwUserException();
-                                }
-                                catch(es.upm.fi.rmi.AccountDoesnotExist)
-                                {
-                                    throw;
-                                }
-                                catch(Ice.UserException ex__)
-                                {
-                                    throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
-                                }
-                            }
-                            es.upm.fi.rmi.AccountProfile ret__;
-                            IceInternal.BasicStream is__ = outAsync__.startReadParams();
-                            ret__ = null;
-                            ret__ = es.upm.fi.rmi.AccountProfile.read__(is__, ret__);
-                            outAsync__.endReadParams();
-                            return ret__;
-                        }
-                        finally
-                        {
-                            outAsync__.cacheMessageBuffers();
-                        }
-                    }
-
-                    private Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_GetAccountByUid> begin_GetAccountByUid(int uid, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        checkAsyncTwowayOnly__(__GetAccountByUid_name);
-                        IceInternal.TwowayOutgoingAsync<es.upm.fi.rmi.Callback_AccountService_GetAccountByUid> result__ =  getTwowayOutgoingAsync<es.upm.fi.rmi.Callback_AccountService_GetAccountByUid>(__GetAccountByUid_name, GetAccountByUid_completed__, cookie__);
-                        if(cb__ != null)
-                        {
-                            result__.whenCompletedWithAsyncCallback(cb__);
-                        }
-                        try
-                        {
-                            result__.prepare(__GetAccountByUid_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
-                            IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
-                            os__.writeInt(uid);
-                            result__.endWriteParams();
-                            result__.invoke();
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            result__.abort(ex__);
-                        }
-                        return result__;
-                    }
-
-                    private void GetAccountByUid_completed__(Ice.AsyncResult r__, es.upm.fi.rmi.Callback_AccountService_GetAccountByUid cb__, Ice.ExceptionCallback excb__)
-                    {
-                        es.upm.fi.rmi.AccountProfile ret__;
-                        try
-                        {
-                            ret__ = end_GetAccountByUid(r__);
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            if(excb__ != null)
-                            {
-                                excb__(ex__);
-                            }
-                            return;
-                        }
-                        if(cb__ != null)
-                        {
-                            cb__(ret__);
-                        }
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_GetCurrentAccount> begin_GetCurrentAccount(long sid)
-                    {
-                        return begin_GetCurrentAccount(sid, null, false, false, null, null);
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_GetCurrentAccount> begin_GetCurrentAccount(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        return begin_GetCurrentAccount(sid, ctx__, true, false, null, null);
-                    }
-
-                    public Ice.AsyncResult begin_GetCurrentAccount(long sid, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_GetCurrentAccount(sid, null, false, false, cb__, cookie__);
-                    }
-
-                    public Ice.AsyncResult begin_GetCurrentAccount(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_GetCurrentAccount(sid, ctx__, true, false, cb__, cookie__);
-                    }
-
-                    private const string __GetCurrentAccount_name = "GetCurrentAccount";
-
-                    public es.upm.fi.rmi.AccountProfile end_GetCurrentAccount(Ice.AsyncResult r__)
-                    {
-                        IceInternal.OutgoingAsync outAsync__ = IceInternal.OutgoingAsync.check(r__, this, __GetCurrentAccount_name);
-                        try
-                        {
-                            if(!outAsync__.wait())
-                            {
-                                try
-                                {
-                                    outAsync__.throwUserException();
-                                }
-                                catch(es.upm.fi.rmi.AccountDoesnotExist)
-                                {
-                                    throw;
-                                }
-                                catch(Ice.UserException ex__)
-                                {
-                                    throw new Ice.UnknownUserException(ex__.ice_name(), ex__);
-                                }
-                            }
-                            es.upm.fi.rmi.AccountProfile ret__;
-                            IceInternal.BasicStream is__ = outAsync__.startReadParams();
-                            ret__ = null;
-                            ret__ = es.upm.fi.rmi.AccountProfile.read__(is__, ret__);
-                            outAsync__.endReadParams();
-                            return ret__;
-                        }
-                        finally
-                        {
-                            outAsync__.cacheMessageBuffers();
-                        }
-                    }
-
-                    private Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_GetCurrentAccount> begin_GetCurrentAccount(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        checkAsyncTwowayOnly__(__GetCurrentAccount_name);
-                        IceInternal.TwowayOutgoingAsync<es.upm.fi.rmi.Callback_AccountService_GetCurrentAccount> result__ =  getTwowayOutgoingAsync<es.upm.fi.rmi.Callback_AccountService_GetCurrentAccount>(__GetCurrentAccount_name, GetCurrentAccount_completed__, cookie__);
-                        if(cb__ != null)
-                        {
-                            result__.whenCompletedWithAsyncCallback(cb__);
-                        }
-                        try
-                        {
-                            result__.prepare(__GetCurrentAccount_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
-                            IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
-                            os__.writeLong(sid);
-                            result__.endWriteParams();
-                            result__.invoke();
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            result__.abort(ex__);
-                        }
-                        return result__;
-                    }
-
-                    private void GetCurrentAccount_completed__(Ice.AsyncResult r__, es.upm.fi.rmi.Callback_AccountService_GetCurrentAccount cb__, Ice.ExceptionCallback excb__)
-                    {
-                        es.upm.fi.rmi.AccountProfile ret__;
-                        try
-                        {
-                            ret__ = end_GetCurrentAccount(r__);
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            if(excb__ != null)
-                            {
-                                excb__(ex__);
-                            }
-                            return;
-                        }
-                        if(cb__ != null)
-                        {
-                            cb__(ret__);
-                        }
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_KeepAlive> begin_KeepAlive(long sid)
-                    {
-                        return begin_KeepAlive(sid, null, false, false, null, null);
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_KeepAlive> begin_KeepAlive(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        return begin_KeepAlive(sid, ctx__, true, false, null, null);
-                    }
-
-                    public Ice.AsyncResult begin_KeepAlive(long sid, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_KeepAlive(sid, null, false, false, cb__, cookie__);
-                    }
-
-                    public Ice.AsyncResult begin_KeepAlive(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_KeepAlive(sid, ctx__, true, false, cb__, cookie__);
-                    }
-
-                    private const string __KeepAlive_name = "KeepAlive";
-
-                    public void end_KeepAlive(Ice.AsyncResult r__)
-                    {
-                        end__(r__, __KeepAlive_name);
-                    }
-
-                    private Ice.AsyncResult<es.upm.fi.rmi.Callback_AccountService_KeepAlive> begin_KeepAlive(long sid, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        IceInternal.OnewayOutgoingAsync<es.upm.fi.rmi.Callback_AccountService_KeepAlive> result__ = getOnewayOutgoingAsync<es.upm.fi.rmi.Callback_AccountService_KeepAlive>(__KeepAlive_name, KeepAlive_completed__, cookie__);
-                        if(cb__ != null)
-                        {
-                            result__.whenCompletedWithAsyncCallback(cb__);
-                        }
-                        try
-                        {
-                            result__.prepare(__KeepAlive_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
-                            IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
-                            os__.writeLong(sid);
-                            result__.endWriteParams();
-                            result__.invoke();
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            result__.abort(ex__);
-                        }
-                        return result__;
-                    }
-
-                    private void KeepAlive_completed__(es.upm.fi.rmi.Callback_AccountService_KeepAlive cb__)
-                    {
-                        if(cb__ != null)
-                        {
-                            cb__();
                         }
                     }
 
@@ -1750,13 +1125,6 @@ namespace es
                 {
                     #region Slice operations
 
-                    public void KeepAlive(long sid)
-                    {
-                        KeepAlive(sid, Ice.ObjectImpl.defaultCurrent);
-                    }
-
-                    public abstract void KeepAlive(long sid, Ice.Current current__);
-
                     public void CreateAccount(es.upm.fi.rmi.AccountProfile profile)
                     {
                         CreateAccount(profile, Ice.ObjectImpl.defaultCurrent);
@@ -1764,40 +1132,12 @@ namespace es
 
                     public abstract void CreateAccount(es.upm.fi.rmi.AccountProfile profile, Ice.Current current__);
 
-                    public es.upm.fi.rmi.AccountProfile GetCurrentAccount(long sid)
-                    {
-                        return GetCurrentAccount(sid, Ice.ObjectImpl.defaultCurrent);
-                    }
-
-                    public abstract es.upm.fi.rmi.AccountProfile GetCurrentAccount(long sid, Ice.Current current__);
-
                     public es.upm.fi.rmi.AccountProfile GetAccountByName(string name)
                     {
                         return GetAccountByName(name, Ice.ObjectImpl.defaultCurrent);
                     }
 
                     public abstract es.upm.fi.rmi.AccountProfile GetAccountByName(string name, Ice.Current current__);
-
-                    public es.upm.fi.rmi.AccountProfile GetAccountByUid(int uid)
-                    {
-                        return GetAccountByUid(uid, Ice.ObjectImpl.defaultCurrent);
-                    }
-
-                    public abstract es.upm.fi.rmi.AccountProfile GetAccountByUid(int uid, Ice.Current current__);
-
-                    public void DestroyAccountByName(string name)
-                    {
-                        DestroyAccountByName(name, Ice.ObjectImpl.defaultCurrent);
-                    }
-
-                    public abstract void DestroyAccountByName(string name, Ice.Current current__);
-
-                    public void DestroyAccountByUid(int uid)
-                    {
-                        DestroyAccountByUid(uid, Ice.ObjectImpl.defaultCurrent);
-                    }
-
-                    public abstract void DestroyAccountByUid(int uid, Ice.Current current__);
 
                     #endregion
 
@@ -1849,19 +1189,6 @@ namespace es
                     #region Operation dispatch
 
                     [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                    public static Ice.DispatchStatus KeepAlive___(AccountService obj__, IceInternal.Incoming inS__, Ice.Current current__)
-                    {
-                        Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
-                        IceInternal.BasicStream is__ = inS__.startReadParams();
-                        long sid;
-                        sid = is__.readLong();
-                        inS__.endReadParams();
-                        obj__.KeepAlive(sid, current__);
-                        inS__.writeEmptyParams__();
-                        return Ice.DispatchStatus.DispatchOK;
-                    }
-
-                    [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
                     public static Ice.DispatchStatus CreateAccount___(AccountService obj__, IceInternal.Incoming inS__, Ice.Current current__)
                     {
                         Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
@@ -1877,29 +1204,6 @@ namespace es
                             return Ice.DispatchStatus.DispatchOK;
                         }
                         catch(es.upm.fi.rmi.AccountHasAlreadyExisted ex__)
-                        {
-                            inS__.writeUserException__(ex__, Ice.FormatType.DefaultFormat);
-                            return Ice.DispatchStatus.DispatchUserException;
-                        }
-                    }
-
-                    [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                    public static Ice.DispatchStatus GetCurrentAccount___(AccountService obj__, IceInternal.Incoming inS__, Ice.Current current__)
-                    {
-                        Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
-                        IceInternal.BasicStream is__ = inS__.startReadParams();
-                        long sid;
-                        sid = is__.readLong();
-                        inS__.endReadParams();
-                        try
-                        {
-                            es.upm.fi.rmi.AccountProfile ret__ = obj__.GetCurrentAccount(sid, current__);
-                            IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
-                            es.upm.fi.rmi.AccountProfile.write__(os__, ret__);
-                            inS__.endWriteParams__(true);
-                            return Ice.DispatchStatus.DispatchOK;
-                        }
-                        catch(es.upm.fi.rmi.AccountDoesnotExist ex__)
                         {
                             inS__.writeUserException__(ex__, Ice.FormatType.DefaultFormat);
                             return Ice.DispatchStatus.DispatchUserException;
@@ -1929,80 +1233,10 @@ namespace es
                         }
                     }
 
-                    [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                    public static Ice.DispatchStatus GetAccountByUid___(AccountService obj__, IceInternal.Incoming inS__, Ice.Current current__)
-                    {
-                        Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
-                        IceInternal.BasicStream is__ = inS__.startReadParams();
-                        int uid;
-                        uid = is__.readInt();
-                        inS__.endReadParams();
-                        try
-                        {
-                            es.upm.fi.rmi.AccountProfile ret__ = obj__.GetAccountByUid(uid, current__);
-                            IceInternal.BasicStream os__ = inS__.startWriteParams__(Ice.FormatType.DefaultFormat);
-                            es.upm.fi.rmi.AccountProfile.write__(os__, ret__);
-                            inS__.endWriteParams__(true);
-                            return Ice.DispatchStatus.DispatchOK;
-                        }
-                        catch(es.upm.fi.rmi.AccountDoesnotExist ex__)
-                        {
-                            inS__.writeUserException__(ex__, Ice.FormatType.DefaultFormat);
-                            return Ice.DispatchStatus.DispatchUserException;
-                        }
-                    }
-
-                    [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                    public static Ice.DispatchStatus DestroyAccountByName___(AccountService obj__, IceInternal.Incoming inS__, Ice.Current current__)
-                    {
-                        Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
-                        IceInternal.BasicStream is__ = inS__.startReadParams();
-                        string name;
-                        name = is__.readString();
-                        inS__.endReadParams();
-                        try
-                        {
-                            obj__.DestroyAccountByName(name, current__);
-                            inS__.writeEmptyParams__();
-                            return Ice.DispatchStatus.DispatchOK;
-                        }
-                        catch(es.upm.fi.rmi.AccountDoesnotExist ex__)
-                        {
-                            inS__.writeUserException__(ex__, Ice.FormatType.DefaultFormat);
-                            return Ice.DispatchStatus.DispatchUserException;
-                        }
-                    }
-
-                    [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                    public static Ice.DispatchStatus DestroyAccountByUid___(AccountService obj__, IceInternal.Incoming inS__, Ice.Current current__)
-                    {
-                        Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
-                        IceInternal.BasicStream is__ = inS__.startReadParams();
-                        int uid;
-                        uid = is__.readInt();
-                        inS__.endReadParams();
-                        try
-                        {
-                            obj__.DestroyAccountByUid(uid, current__);
-                            inS__.writeEmptyParams__();
-                            return Ice.DispatchStatus.DispatchOK;
-                        }
-                        catch(es.upm.fi.rmi.AccountDoesnotExist ex__)
-                        {
-                            inS__.writeUserException__(ex__, Ice.FormatType.DefaultFormat);
-                            return Ice.DispatchStatus.DispatchUserException;
-                        }
-                    }
-
                     private static string[] all__ =
                     {
                         "CreateAccount",
-                        "DestroyAccountByName",
-                        "DestroyAccountByUid",
                         "GetAccountByName",
-                        "GetAccountByUid",
-                        "GetCurrentAccount",
-                        "KeepAlive",
                         "ice_id",
                         "ice_ids",
                         "ice_isA",
@@ -2025,41 +1259,21 @@ namespace es
                             }
                             case 1:
                             {
-                                return DestroyAccountByName___(this, inS__, current__);
+                                return GetAccountByName___(this, inS__, current__);
                             }
                             case 2:
                             {
-                                return DestroyAccountByUid___(this, inS__, current__);
+                                return Ice.ObjectImpl.ice_id___(this, inS__, current__);
                             }
                             case 3:
                             {
-                                return GetAccountByName___(this, inS__, current__);
+                                return Ice.ObjectImpl.ice_ids___(this, inS__, current__);
                             }
                             case 4:
                             {
-                                return GetAccountByUid___(this, inS__, current__);
-                            }
-                            case 5:
-                            {
-                                return GetCurrentAccount___(this, inS__, current__);
-                            }
-                            case 6:
-                            {
-                                return KeepAlive___(this, inS__, current__);
-                            }
-                            case 7:
-                            {
-                                return Ice.ObjectImpl.ice_id___(this, inS__, current__);
-                            }
-                            case 8:
-                            {
-                                return Ice.ObjectImpl.ice_ids___(this, inS__, current__);
-                            }
-                            case 9:
-                            {
                                 return Ice.ObjectImpl.ice_isA___(this, inS__, current__);
                             }
-                            case 10:
+                            case 5:
                             {
                                 return Ice.ObjectImpl.ice_ping___(this, inS__, current__);
                             }

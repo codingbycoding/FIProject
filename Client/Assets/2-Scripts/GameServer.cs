@@ -107,6 +107,7 @@ public class GameServer : BaseNetworkGameManager {
     void Update() {
 
     }
+
     void InitOnline()
     {
         //GameServerConnectOnlineService("GameServer.UserName", "GameServer.Password");
@@ -315,7 +316,7 @@ public class GameServer : BaseNetworkGameManager {
 		GameObject objJumpPoints = GameObject.Find ("JumpPoints");
 		Transform posTransform = null;
 		if(null != objJumpPoints) {
-			posTransform = objJumpPoints.transform.FindChild("JumpPoint" + csLoginMessage.cookie + "/pos");
+			posTransform = objJumpPoints.transform.Find("JumpPoint" + csLoginMessage.cookie + "/pos");
 		}
 
         GameObject avatar = null;

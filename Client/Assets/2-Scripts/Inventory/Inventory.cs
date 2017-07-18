@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Inventory
 {
@@ -15,6 +16,11 @@ public class Inventory
 
         return instance;
     }
+
+	public void Clear() 
+	{
+		itemsList.Clear();
+	}
 
     public Inventory()
     {

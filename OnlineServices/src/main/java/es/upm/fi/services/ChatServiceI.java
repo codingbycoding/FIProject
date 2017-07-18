@@ -47,50 +47,7 @@ public class ChatServiceI extends _ChatServiceDisp {
         }
     }
 
-    @Override
-    public ChannelInfo JoinChannel(long sid, long channelId, Current __current) throws PaseoException {
-        return null;
-    }
 
-    @Override
-    public ChannelInfo[] GetAllChannel(long sid, Current __current) {
-        return new ChannelInfo[0];
-    }
-
-    @Override
-    public boolean SendNotice(long sid, NoticeInfo info, Current __current) {
-        return false;
-    }
-
-    @Override
-    public NoticeInfo[] GetAllNoticeByType(long sid, byte noticeType, Current __current) {
-        return new NoticeInfo[0];
-    }
-
-    @Override
-    public boolean DelNotice(long sid, int noticeId, byte noticeType, Current __current) {
-        return false;
-    }
-
-    @Override
-    public boolean SendInformation(long sid, InformationInfo info, Current __current) {
-        return false;
-    }
-
-    @Override
-    public InformationInfo[] GetAllInformation(long sid, Current __current) {
-        return new InformationInfo[0];
-    }
-
-    @Override
-    public boolean DelInformation(long sid, int informationId, Current __current) {
-        return false;
-    }
-
-    @Override
-    public CharacterProfile[] GetSameChannelIdlePlayers(long sid, Current __current) throws PaseoException {
-        return new CharacterProfile[0];
-    }
 
     @Override
     public String[] GetOnlineUserList(Ice.Current __current)

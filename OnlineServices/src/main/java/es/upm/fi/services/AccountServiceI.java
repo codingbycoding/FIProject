@@ -17,11 +17,6 @@ public class AccountServiceI extends _AccountServiceDisp {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public void KeepAlive(long sid, Current __current) {
-
-		
-	}
 
 	@Override
 	public void CreateAccount(AccountProfile profile, Current __current) throws AccountHasAlreadyExisted {
@@ -29,11 +24,6 @@ public class AccountServiceI extends _AccountServiceDisp {
 		UserAccountDB.createAccount(profile);
 	}
 
-	@Override
-	public AccountProfile GetCurrentAccount(long sid, Current __current) throws AccountDoesnotExist {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public AccountProfile GetAccountByName(String name, Current __current) throws AccountDoesnotExist {
@@ -41,22 +31,5 @@ public class AccountServiceI extends _AccountServiceDisp {
 		return null;
 	}
 
-	@Override
-	public AccountProfile GetAccountByUid(int uid, Current __current) throws AccountDoesnotExist {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void DestroyAccountByName(String name, Current __current) throws AccountDoesnotExist {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void DestroyAccountByUid(int uid, Current __current) throws AccountDoesnotExist {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

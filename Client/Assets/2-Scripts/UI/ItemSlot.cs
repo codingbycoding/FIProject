@@ -9,6 +9,8 @@ public class ItemSlot : MonoBehaviour {
     private bool isMouseCurrentOver = false;
 	private bool isDropping = false;
     private Item item;
+
+	private static float timeMark = 0.0f;
     // Use this for initialization
     void Start () {
         
@@ -44,12 +46,18 @@ public class ItemSlot : MonoBehaviour {
     {
 		if (Event.current.button == 1 && isMouseCurrentOver && !isDropping)
         {
+			if(Time.time - timeMark < 0.5f) {
+				return;
+			}
+
+			timeMark = Time.time;
 			isDropping = true;
             Debug.Log("ItemSlot OnGUI button == 1 item_id:" + item.itemId);
 
             this.gameObject.transform.SetParent(null);
             this.gameObject.GetComponent<RectTransform>().localPosition = Vector3.zero;
             item.DropItem();
+
             Destroy(this);
         }
 

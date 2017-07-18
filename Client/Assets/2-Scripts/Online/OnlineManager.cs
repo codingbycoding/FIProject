@@ -177,10 +177,17 @@ public class OnlineManager
 
     public void Logout()
     {
-//        if(null != session)
-//        {
-//            session.destroy();
-//        }        
+        if(null != session)
+			
+        {
+			try {
+           	 session.destroy();
+			} 
+			catch(Exception e) 
+			{
+				Debug.LogError(e);
+			}
+        }        
     }
 
 }

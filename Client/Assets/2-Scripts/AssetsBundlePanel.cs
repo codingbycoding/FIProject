@@ -23,11 +23,11 @@ public class AssetsBundlePanel : MonoBehaviour {
 		baseBundleURL = "http://" + DataMaster.GameClient.OnlineIP + ":8080/FIProject_AssetBundles/scenes/";
 		string assetBundleSceneName = "serverscene_assetbundle_1";
 		bundleURL = baseBundleURL + assetBundleSceneName;
-        Transform bgProgress = transform.FindChild("AB_Scene_1_bg");
+        Transform bgProgress = transform.Find("AB_Scene_1_bg");
         bgImage = bgProgress.GetComponent<Image>();
 
-        precentIndicator = transform.FindChild("progressIndicator").GetComponent<Text>();
-        stateIndicator = transform.FindChild("loadingState").GetComponent<Text>();
+        precentIndicator = transform.Find("progressIndicator").GetComponent<Text>();
+        stateIndicator = transform.Find("loadingState").GetComponent<Text>();
         stateIndicator.text = "";
         precentIndicator.text = "";
         bgImage.fillAmount = 0;

@@ -15,6 +15,6 @@ public class CacheUtil : MonoBehaviour {
 	}
 
 	public void CleanAllCache() {
-		Caching.CleanCache ();
+		Caching.ClearCache ();
 	}
 }

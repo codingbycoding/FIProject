@@ -23,11 +23,11 @@ public class AssetsBundleOp : MonoBehaviour {
 		
 
 
-        Transform bgProgress = transform.FindChild("AB_Scene_1_bg");
+        Transform bgProgress = transform.Find("AB_Scene_1_bg");
         bgImage = bgProgress.GetComponent<Image>();
 
-        precentIndicator = transform.FindChild("progressIndicator").GetComponent<Text>();
-        stateIndicator = transform.FindChild("loadingState").GetComponent<Text>();
+        precentIndicator = transform.Find("progressIndicator").GetComponent<Text>();
+        stateIndicator = transform.Find("loadingState").GetComponent<Text>();
         stateIndicator.text = "";
         precentIndicator.text = "";
         //bgImage.fillAmount = 0;
@@ -45,11 +45,11 @@ public class AssetsBundleOp : MonoBehaviour {
 		baseBundleURL = "http://" + DataMaster.GameClient.OnlineIP + ":8080/FIProject_AssetBundles/scenes/";
 		bundleURL = baseBundleURL + assetBundleSceneName;
 
-		transform.FindChild("AssetBundleSceneName").GetComponent<Text>().text = sceneLabelName;
+		transform.Find("AssetBundleSceneName").GetComponent<Text>().text = sceneLabelName;
 
         if(Caching.IsVersionCached(bundleURL, 0))
         {
-			transform.FindChild("loadingState").GetComponent<Text>().text = "Ready";
+			transform.Find("loadingState").GetComponent<Text>().text = "Ready";
             downloadDone = true;
 			transform.SetAsFirstSibling ();
         }
@@ -110,8 +110,14 @@ public class AssetsBundleOp : MonoBehaviour {
 
             downloadDone = true;
             //yield return www;
-            if (www.error != null)
-                throw new Exception("WWW download had an error:" + www.error);
+
+			//[Add to fix download AssetBundle scene.
+	
+//			if (!string.IsNullOrEmpty(www.error))
+//                throw new Exception("WWW download had an error:" + www.error);
+		
+
+
 //            if (null != assetBundleScene)
 //            {
 //                assetBundleScene.Unload(false);

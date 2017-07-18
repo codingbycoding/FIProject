@@ -23,6 +23,11 @@ public class InventoryManager
         return instance;
     }
 
+	public void Delete() {
+		rmiInventory = null;
+		inventory.Clear();
+		instance = null;
+	}
 
     private InventoryManager(OnlineManager olManager)
     {
@@ -95,6 +100,7 @@ public class InventoryManager
                 Item item = gbItem.GetComponent<Item>();
                 inventoryUI.ShowNewItem(item);
                 inventory.AddItem(item);
+
             }
            
         }

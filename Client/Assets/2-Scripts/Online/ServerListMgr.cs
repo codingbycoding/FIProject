@@ -25,13 +25,13 @@ public class ServerListMgr : MonoBehaviour {
 
 			Button bt = Instantiate<Button>(servEntryButtonFab, new Vector3(0, -60.0f-80.0f*index++, 0), Quaternion.identity);
 			bt.transform.SetParent(parentPanel, false);
-			bt.transform.FindChild ("AssetBundle").SetAsFirstSibling ();
+			bt.transform.Find ("AssetBundle").SetAsFirstSibling ();
 
 			foreach(ServerEntry servEntry in gameClient.servInfo.serverInfoSeq)
 			{						
 				if(serverLabelName.Equals(servEntry.name)) {
 					
-					bt.transform.FindChild ("ServerName").GetComponent<Text> ().text = servEntry.name;// + "  " + servEntry.servAddr;
+					bt.transform.Find ("ServerName").GetComponent<Text> ().text = servEntry.name;// + "  " + servEntry.servAddr;
 
 					ServEntryButton servEntryButton = bt.GetComponent<ServEntryButton>();
 					string[]  strIPAndPort = servEntry.servAddr.Split(':');
@@ -47,15 +47,15 @@ public class ServerListMgr : MonoBehaviour {
 			}
 
 			if(false == bMatched) {				
-				bt.transform.FindChild("ServerName").GetComponent<Text>().text = serverLabelName;
-				bt.transform.FindChild("ServerStatus").GetComponent<Text> ().text = "offline";
-				bt.transform.FindChild("ServerStatus").GetComponent<Text> ().color = Color.red;
+				bt.transform.Find("ServerName").GetComponent<Text>().text = serverLabelName;
+				bt.transform.Find("ServerStatus").GetComponent<Text> ().text = "offline";
+				bt.transform.Find("ServerStatus").GetComponent<Text> ().color = Color.red;
 			}
 
 			if(gameClient.serverLabelNameDict[serverLabelName].Length > 11 
 				&& gameClient.serverLabelNameDict[serverLabelName].Substring (0, 11).Equals("assetbundle")) {
-				bt.transform.FindChild ("AssetBundle").SetAsLastSibling ();
-				AssetsBundleOp assetsBundleOp = bt.transform.FindChild ("AssetBundle").gameObject.GetComponent<AssetsBundleOp> ();
+				bt.transform.Find ("AssetBundle").SetAsLastSibling ();
+				AssetsBundleOp assetsBundleOp = bt.transform.Find ("AssetBundle").gameObject.GetComponent<AssetsBundleOp> ();
 				assetsBundleOp.CheckCached(gameClient.serverLabelNameDict[serverLabelName], serverLabelName);
 			}
 

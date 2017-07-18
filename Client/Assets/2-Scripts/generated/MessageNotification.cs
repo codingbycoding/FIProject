@@ -260,19 +260,7 @@ namespace es
             namespace rmi
             {
                 [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
-                public delegate void Callback_MessageNotification_OnAutoJoinedChannel();
-
-                [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                 public delegate void Callback_MessageNotification_OnReceiveMessage();
-
-                [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
-                public delegate void Callback_MessageNotification_OnKeepAliveCheck();
-
-                [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
-                public delegate void Callback_MessageNotification_OnReceiveNotice();
-
-                [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
-                public delegate void Callback_MessageNotification_OnReceiveInformation();
             }
         }
     }
@@ -289,20 +277,6 @@ namespace es
                 [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                 public interface MessageNotificationPrx : es.upm.fi.rmi.NotificationBasePrx
                 {
-                    void OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info);
-
-                    void OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnAutoJoinedChannel> begin_OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnAutoJoinedChannel> begin_OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult begin_OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info, Ice.AsyncCallback cb__, object cookie__);
-
-                    Ice.AsyncResult begin_OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
-
-                    void end_OnAutoJoinedChannel(Ice.AsyncResult r__);
-
                     void OnReceiveMessage(es.upm.fi.rmi.Message[] msgSeq);
 
                     void OnReceiveMessage(es.upm.fi.rmi.Message[] msgSeq, _System.Collections.Generic.Dictionary<string, string> ctx__);
@@ -316,48 +290,6 @@ namespace es
                     Ice.AsyncResult begin_OnReceiveMessage(es.upm.fi.rmi.Message[] msgSeq, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
 
                     void end_OnReceiveMessage(Ice.AsyncResult r__);
-
-                    void OnKeepAliveCheck();
-
-                    void OnKeepAliveCheck(_System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnKeepAliveCheck> begin_OnKeepAliveCheck();
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnKeepAliveCheck> begin_OnKeepAliveCheck(_System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult begin_OnKeepAliveCheck(Ice.AsyncCallback cb__, object cookie__);
-
-                    Ice.AsyncResult begin_OnKeepAliveCheck(_System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
-
-                    void end_OnKeepAliveCheck(Ice.AsyncResult r__);
-
-                    void OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info);
-
-                    void OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveNotice> begin_OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveNotice> begin_OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult begin_OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info, Ice.AsyncCallback cb__, object cookie__);
-
-                    Ice.AsyncResult begin_OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
-
-                    void end_OnReceiveNotice(Ice.AsyncResult r__);
-
-                    void OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info);
-
-                    void OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveInformation> begin_OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info);
-
-                    Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveInformation> begin_OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__);
-
-                    Ice.AsyncResult begin_OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info, Ice.AsyncCallback cb__, object cookie__);
-
-                    Ice.AsyncResult begin_OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__);
-
-                    void end_OnReceiveInformation(Ice.AsyncResult r__);
                 }
             }
         }
@@ -375,29 +307,13 @@ namespace es
                 [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                 public interface MessageNotificationOperations_ : es.upm.fi.rmi.NotificationBaseOperations_
                 {
-                    void OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info, Ice.Current current__);
-
                     void OnReceiveMessage(es.upm.fi.rmi.Message[] msgSeq, Ice.Current current__);
-
-                    void OnKeepAliveCheck(Ice.Current current__);
-
-                    void OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info, Ice.Current current__);
-
-                    void OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info, Ice.Current current__);
                 }
 
                 [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.6.3")]
                 public interface MessageNotificationOperationsNC_ : es.upm.fi.rmi.NotificationBaseOperationsNC_
                 {
-                    void OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info);
-
                     void OnReceiveMessage(es.upm.fi.rmi.Message[] msgSeq);
-
-                    void OnKeepAliveCheck();
-
-                    void OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info);
-
-                    void OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info);
                 }
             }
         }
@@ -453,51 +369,6 @@ namespace es
                 {
                     #region Synchronous operations
 
-                    public void OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info)
-                    {
-                        this.OnAutoJoinedChannel(info, null, false);
-                    }
-
-                    public void OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        this.OnAutoJoinedChannel(info, ctx__, true);
-                    }
-
-                    private void OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
-                    {
-                        end_OnAutoJoinedChannel(begin_OnAutoJoinedChannel(info, context__, explicitCtx__, true, null, null));
-                    }
-
-                    public void OnKeepAliveCheck()
-                    {
-                        this.OnKeepAliveCheck(null, false);
-                    }
-
-                    public void OnKeepAliveCheck(_System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        this.OnKeepAliveCheck(ctx__, true);
-                    }
-
-                    private void OnKeepAliveCheck(_System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
-                    {
-                        end_OnKeepAliveCheck(begin_OnKeepAliveCheck(context__, explicitCtx__, true, null, null));
-                    }
-
-                    public void OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info)
-                    {
-                        this.OnReceiveInformation(info, null, false);
-                    }
-
-                    public void OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        this.OnReceiveInformation(info, ctx__, true);
-                    }
-
-                    private void OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
-                    {
-                        end_OnReceiveInformation(begin_OnReceiveInformation(info, context__, explicitCtx__, true, null, null));
-                    }
-
                     public void OnReceiveMessage(es.upm.fi.rmi.Message[] msgSeq)
                     {
                         this.OnReceiveMessage(msgSeq, null, false);
@@ -513,193 +384,9 @@ namespace es
                         end_OnReceiveMessage(begin_OnReceiveMessage(msgSeq, context__, explicitCtx__, true, null, null));
                     }
 
-                    public void OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info)
-                    {
-                        this.OnReceiveNotice(info, null, false);
-                    }
-
-                    public void OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        this.OnReceiveNotice(info, ctx__, true);
-                    }
-
-                    private void OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info, _System.Collections.Generic.Dictionary<string, string> context__, bool explicitCtx__)
-                    {
-                        end_OnReceiveNotice(begin_OnReceiveNotice(info, context__, explicitCtx__, true, null, null));
-                    }
-
                     #endregion
 
                     #region Asynchronous operations
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnAutoJoinedChannel> begin_OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info)
-                    {
-                        return begin_OnAutoJoinedChannel(info, null, false, false, null, null);
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnAutoJoinedChannel> begin_OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        return begin_OnAutoJoinedChannel(info, ctx__, true, false, null, null);
-                    }
-
-                    public Ice.AsyncResult begin_OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_OnAutoJoinedChannel(info, null, false, false, cb__, cookie__);
-                    }
-
-                    public Ice.AsyncResult begin_OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_OnAutoJoinedChannel(info, ctx__, true, false, cb__, cookie__);
-                    }
-
-                    private const string __OnAutoJoinedChannel_name = "OnAutoJoinedChannel";
-
-                    public void end_OnAutoJoinedChannel(Ice.AsyncResult r__)
-                    {
-                        end__(r__, __OnAutoJoinedChannel_name);
-                    }
-
-                    private Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnAutoJoinedChannel> begin_OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        IceInternal.OnewayOutgoingAsync<es.upm.fi.rmi.Callback_MessageNotification_OnAutoJoinedChannel> result__ = getOnewayOutgoingAsync<es.upm.fi.rmi.Callback_MessageNotification_OnAutoJoinedChannel>(__OnAutoJoinedChannel_name, OnAutoJoinedChannel_completed__, cookie__);
-                        if(cb__ != null)
-                        {
-                            result__.whenCompletedWithAsyncCallback(cb__);
-                        }
-                        try
-                        {
-                            result__.prepare(__OnAutoJoinedChannel_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
-                            IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
-                            info.write__(os__);
-                            result__.endWriteParams();
-                            result__.invoke();
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            result__.abort(ex__);
-                        }
-                        return result__;
-                    }
-
-                    private void OnAutoJoinedChannel_completed__(es.upm.fi.rmi.Callback_MessageNotification_OnAutoJoinedChannel cb__)
-                    {
-                        if(cb__ != null)
-                        {
-                            cb__();
-                        }
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnKeepAliveCheck> begin_OnKeepAliveCheck()
-                    {
-                        return begin_OnKeepAliveCheck(null, false, false, null, null);
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnKeepAliveCheck> begin_OnKeepAliveCheck(_System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        return begin_OnKeepAliveCheck(ctx__, true, false, null, null);
-                    }
-
-                    public Ice.AsyncResult begin_OnKeepAliveCheck(Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_OnKeepAliveCheck(null, false, false, cb__, cookie__);
-                    }
-
-                    public Ice.AsyncResult begin_OnKeepAliveCheck(_System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_OnKeepAliveCheck(ctx__, true, false, cb__, cookie__);
-                    }
-
-                    private const string __OnKeepAliveCheck_name = "OnKeepAliveCheck";
-
-                    public void end_OnKeepAliveCheck(Ice.AsyncResult r__)
-                    {
-                        end__(r__, __OnKeepAliveCheck_name);
-                    }
-
-                    private Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnKeepAliveCheck> begin_OnKeepAliveCheck(_System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        IceInternal.OnewayOutgoingAsync<es.upm.fi.rmi.Callback_MessageNotification_OnKeepAliveCheck> result__ = getOnewayOutgoingAsync<es.upm.fi.rmi.Callback_MessageNotification_OnKeepAliveCheck>(__OnKeepAliveCheck_name, OnKeepAliveCheck_completed__, cookie__);
-                        if(cb__ != null)
-                        {
-                            result__.whenCompletedWithAsyncCallback(cb__);
-                        }
-                        try
-                        {
-                            result__.prepare(__OnKeepAliveCheck_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
-                            result__.writeEmptyParams();
-                            result__.invoke();
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            result__.abort(ex__);
-                        }
-                        return result__;
-                    }
-
-                    private void OnKeepAliveCheck_completed__(es.upm.fi.rmi.Callback_MessageNotification_OnKeepAliveCheck cb__)
-                    {
-                        if(cb__ != null)
-                        {
-                            cb__();
-                        }
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveInformation> begin_OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info)
-                    {
-                        return begin_OnReceiveInformation(info, null, false, false, null, null);
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveInformation> begin_OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        return begin_OnReceiveInformation(info, ctx__, true, false, null, null);
-                    }
-
-                    public Ice.AsyncResult begin_OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_OnReceiveInformation(info, null, false, false, cb__, cookie__);
-                    }
-
-                    public Ice.AsyncResult begin_OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_OnReceiveInformation(info, ctx__, true, false, cb__, cookie__);
-                    }
-
-                    private const string __OnReceiveInformation_name = "OnReceiveInformation";
-
-                    public void end_OnReceiveInformation(Ice.AsyncResult r__)
-                    {
-                        end__(r__, __OnReceiveInformation_name);
-                    }
-
-                    private Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveInformation> begin_OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        IceInternal.OnewayOutgoingAsync<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveInformation> result__ = getOnewayOutgoingAsync<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveInformation>(__OnReceiveInformation_name, OnReceiveInformation_completed__, cookie__);
-                        if(cb__ != null)
-                        {
-                            result__.whenCompletedWithAsyncCallback(cb__);
-                        }
-                        try
-                        {
-                            result__.prepare(__OnReceiveInformation_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
-                            IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
-                            es.upm.fi.rmi.SendInformationInfo.write__(os__, info);
-                            result__.endWriteParams();
-                            result__.invoke();
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            result__.abort(ex__);
-                        }
-                        return result__;
-                    }
-
-                    private void OnReceiveInformation_completed__(es.upm.fi.rmi.Callback_MessageNotification_OnReceiveInformation cb__)
-                    {
-                        if(cb__ != null)
-                        {
-                            cb__();
-                        }
-                    }
 
                     public Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveMessage> begin_OnReceiveMessage(es.upm.fi.rmi.Message[] msgSeq)
                     {
@@ -751,63 +438,6 @@ namespace es
                     }
 
                     private void OnReceiveMessage_completed__(es.upm.fi.rmi.Callback_MessageNotification_OnReceiveMessage cb__)
-                    {
-                        if(cb__ != null)
-                        {
-                            cb__();
-                        }
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveNotice> begin_OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info)
-                    {
-                        return begin_OnReceiveNotice(info, null, false, false, null, null);
-                    }
-
-                    public Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveNotice> begin_OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__)
-                    {
-                        return begin_OnReceiveNotice(info, ctx__, true, false, null, null);
-                    }
-
-                    public Ice.AsyncResult begin_OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_OnReceiveNotice(info, null, false, false, cb__, cookie__);
-                    }
-
-                    public Ice.AsyncResult begin_OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        return begin_OnReceiveNotice(info, ctx__, true, false, cb__, cookie__);
-                    }
-
-                    private const string __OnReceiveNotice_name = "OnReceiveNotice";
-
-                    public void end_OnReceiveNotice(Ice.AsyncResult r__)
-                    {
-                        end__(r__, __OnReceiveNotice_name);
-                    }
-
-                    private Ice.AsyncResult<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveNotice> begin_OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info, _System.Collections.Generic.Dictionary<string, string> ctx__, bool explicitContext__, bool synchronous__, Ice.AsyncCallback cb__, object cookie__)
-                    {
-                        IceInternal.OnewayOutgoingAsync<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveNotice> result__ = getOnewayOutgoingAsync<es.upm.fi.rmi.Callback_MessageNotification_OnReceiveNotice>(__OnReceiveNotice_name, OnReceiveNotice_completed__, cookie__);
-                        if(cb__ != null)
-                        {
-                            result__.whenCompletedWithAsyncCallback(cb__);
-                        }
-                        try
-                        {
-                            result__.prepare(__OnReceiveNotice_name, Ice.OperationMode.Normal, ctx__, explicitContext__, synchronous__);
-                            IceInternal.BasicStream os__ = result__.startWriteParams(Ice.FormatType.DefaultFormat);
-                            es.upm.fi.rmi.NoticeInfo.write__(os__, info);
-                            result__.endWriteParams();
-                            result__.invoke();
-                        }
-                        catch(Ice.Exception ex__)
-                        {
-                            result__.abort(ex__);
-                        }
-                        return result__;
-                    }
-
-                    private void OnReceiveNotice_completed__(es.upm.fi.rmi.Callback_MessageNotification_OnReceiveNotice cb__)
                     {
                         if(cb__ != null)
                         {
@@ -977,40 +607,12 @@ namespace es
                 {
                     #region Slice operations
 
-                    public void OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info)
-                    {
-                        OnAutoJoinedChannel(info, Ice.ObjectImpl.defaultCurrent);
-                    }
-
-                    public abstract void OnAutoJoinedChannel(es.upm.fi.rmi.ChannelInfo info, Ice.Current current__);
-
                     public void OnReceiveMessage(es.upm.fi.rmi.Message[] msgSeq)
                     {
                         OnReceiveMessage(msgSeq, Ice.ObjectImpl.defaultCurrent);
                     }
 
                     public abstract void OnReceiveMessage(es.upm.fi.rmi.Message[] msgSeq, Ice.Current current__);
-
-                    public void OnKeepAliveCheck()
-                    {
-                        OnKeepAliveCheck(Ice.ObjectImpl.defaultCurrent);
-                    }
-
-                    public abstract void OnKeepAliveCheck(Ice.Current current__);
-
-                    public void OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info)
-                    {
-                        OnReceiveNotice(info, Ice.ObjectImpl.defaultCurrent);
-                    }
-
-                    public abstract void OnReceiveNotice(es.upm.fi.rmi.NoticeInfo info, Ice.Current current__);
-
-                    public void OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info)
-                    {
-                        OnReceiveInformation(info, Ice.ObjectImpl.defaultCurrent);
-                    }
-
-                    public abstract void OnReceiveInformation(es.upm.fi.rmi.SendInformationInfo info, Ice.Current current__);
 
                     #endregion
 
@@ -1067,20 +669,6 @@ namespace es
                     #region Operation dispatch
 
                     [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                    public static Ice.DispatchStatus OnAutoJoinedChannel___(MessageNotification obj__, IceInternal.Incoming inS__, Ice.Current current__)
-                    {
-                        Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
-                        IceInternal.BasicStream is__ = inS__.startReadParams();
-                        es.upm.fi.rmi.ChannelInfo info;
-                        info = new es.upm.fi.rmi.ChannelInfo();
-                        info.read__(is__);
-                        inS__.endReadParams();
-                        obj__.OnAutoJoinedChannel(info, current__);
-                        inS__.writeEmptyParams__();
-                        return Ice.DispatchStatus.DispatchOK;
-                    }
-
-                    [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
                     public static Ice.DispatchStatus OnReceiveMessage___(MessageNotification obj__, IceInternal.Incoming inS__, Ice.Current current__)
                     {
                         Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
@@ -1093,51 +681,9 @@ namespace es
                         return Ice.DispatchStatus.DispatchOK;
                     }
 
-                    [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                    public static Ice.DispatchStatus OnKeepAliveCheck___(MessageNotification obj__, IceInternal.Incoming inS__, Ice.Current current__)
-                    {
-                        Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
-                        inS__.readEmptyParams();
-                        obj__.OnKeepAliveCheck(current__);
-                        inS__.writeEmptyParams__();
-                        return Ice.DispatchStatus.DispatchOK;
-                    }
-
-                    [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                    public static Ice.DispatchStatus OnReceiveNotice___(MessageNotification obj__, IceInternal.Incoming inS__, Ice.Current current__)
-                    {
-                        Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
-                        IceInternal.BasicStream is__ = inS__.startReadParams();
-                        es.upm.fi.rmi.NoticeInfo info;
-                        info = null;
-                        info = es.upm.fi.rmi.NoticeInfo.read__(is__, info);
-                        inS__.endReadParams();
-                        obj__.OnReceiveNotice(info, current__);
-                        inS__.writeEmptyParams__();
-                        return Ice.DispatchStatus.DispatchOK;
-                    }
-
-                    [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                    public static Ice.DispatchStatus OnReceiveInformation___(MessageNotification obj__, IceInternal.Incoming inS__, Ice.Current current__)
-                    {
-                        Ice.ObjectImpl.checkMode__(Ice.OperationMode.Normal, current__.mode);
-                        IceInternal.BasicStream is__ = inS__.startReadParams();
-                        es.upm.fi.rmi.SendInformationInfo info;
-                        info = null;
-                        info = es.upm.fi.rmi.SendInformationInfo.read__(is__, info);
-                        inS__.endReadParams();
-                        obj__.OnReceiveInformation(info, current__);
-                        inS__.writeEmptyParams__();
-                        return Ice.DispatchStatus.DispatchOK;
-                    }
-
                     private static string[] all__ =
                     {
-                        "OnAutoJoinedChannel",
-                        "OnKeepAliveCheck",
-                        "OnReceiveInformation",
                         "OnReceiveMessage",
-                        "OnReceiveNotice",
                         "ice_id",
                         "ice_ids",
                         "ice_isA",
@@ -1156,37 +702,21 @@ namespace es
                         {
                             case 0:
                             {
-                                return OnAutoJoinedChannel___(this, inS__, current__);
+                                return OnReceiveMessage___(this, inS__, current__);
                             }
                             case 1:
                             {
-                                return OnKeepAliveCheck___(this, inS__, current__);
+                                return Ice.ObjectImpl.ice_id___(this, inS__, current__);
                             }
                             case 2:
                             {
-                                return OnReceiveInformation___(this, inS__, current__);
+                                return Ice.ObjectImpl.ice_ids___(this, inS__, current__);
                             }
                             case 3:
                             {
-                                return OnReceiveMessage___(this, inS__, current__);
-                            }
-                            case 4:
-                            {
-                                return OnReceiveNotice___(this, inS__, current__);
-                            }
-                            case 5:
-                            {
-                                return Ice.ObjectImpl.ice_id___(this, inS__, current__);
-                            }
-                            case 6:
-                            {
-                                return Ice.ObjectImpl.ice_ids___(this, inS__, current__);
-                            }
-                            case 7:
-                            {
                                 return Ice.ObjectImpl.ice_isA___(this, inS__, current__);
                             }
-                            case 8:
+                            case 4:
                             {
                                 return Ice.ObjectImpl.ice_ping___(this, inS__, current__);
                             }

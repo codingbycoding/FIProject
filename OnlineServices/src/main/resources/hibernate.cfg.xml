@@ -29,10 +29,8 @@
         <property name="show_sql">true</property>
 
         <!-- Names the annotated entity class -->
-        <mapping class="es.upm.fi.entity.AssetEntity"/>
         <mapping class="es.upm.fi.entity.AuthEntity"/>
         <mapping class="es.upm.fi.entity.AvatarEntity"/>
-        <mapping class="es.upm.fi.entity.InventoryFolderEntity"/>
         <mapping class="es.upm.fi.entity.InventoryEntity"/>
         <mapping class="es.upm.fi.entity.UserAccountEntity"/>
 

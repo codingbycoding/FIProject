@@ -139,7 +139,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			//RpcJump2AnotherServer(other.gameObject.tag);
 
-			GameObject obj = other.transform.FindChild("JumpLabel").gameObject;
+			GameObject obj = other.transform.Find("JumpLabel").gameObject;
 			if (obj != null) {
 				string jumpLable = obj.GetComponent<TextMesh>().text;
 				RpcJump2AnotherServerNew (jumpLable);
@@ -173,7 +173,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 					string[]  strIPAndPort = serverEntry.servAddr.Split(':');
 					string servIP = strIPAndPort[0];
 					int servPort = Int32.Parse(strIPAndPort[1]);
-					gameClient.ConnectGameServer (servIP, servPort, cookie);
+					gameClient.ConnectGameServer (servIP, servPort, cookie, true);
 					gameClient.currentServerLabelName = jumpLable;
 					bFound = true;
 					break;
