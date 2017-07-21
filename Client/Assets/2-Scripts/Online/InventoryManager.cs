@@ -44,45 +44,17 @@ public class InventoryManager
     public void AddItem(Item item)
     {
         inventory.AddItem(item);
-
         inventoryUI.ShowNewItem(item);
 
-        int item_count = 0;
-        foreach(Item itemEach in inventory.GetItems())
-        {
-            if (item.itemId == itemEach.itemId)
-                item_count++;
-        }
-
-        RmiItem rmiItem;
-        rmiItem.itemId = item.itemId;
-        rmiItem.itemNum = item_count;
-
-        UpdateItem(rmiItem);
+		RmiItem rmiItem = inventory.GetRmiItem(item.itemId);
+		UpdateItem(rmiItem);
     }
 
     public void RemoveItem(Item item)
     {
-        RmiItem rmiItem;
-        rmiItem.itemId = item.itemId;
-        rmiItem.itemNum = -1;   
-
-        foreach (RmiItem rmiItemEach in rmiInventory.items)
-        {
-            if (item.itemId == rmiItemEach.itemId)
-            {
-                rmiItem = rmiItemEach;
-                break;
-            }                
-        }
-
-        rmiItem.itemNum--;
-        if (rmiItem.itemNum >= 0)
-        {
-            inventory.RemoveItem(item);
-            UpdateItem(rmiItem);
-        }
-        
+        inventory.RemoveItem(item);
+		RmiItem rmiItem = inventory.GetRmiItem(item.itemId);
+        UpdateItem(rmiItem);       
     }
 
     public void GetInventory()
@@ -100,15 +72,13 @@ public class InventoryManager
                 Item item = gbItem.GetComponent<Item>();
                 inventoryUI.ShowNewItem(item);
                 inventory.AddItem(item);
-
-            }
-           
+            }           
         }
 
     }
 
     public void UpdateItem(RmiItem rmiItem)
-    {
+    {		
         inventoryPrx.updateItem(rmiItem);
     }
 }

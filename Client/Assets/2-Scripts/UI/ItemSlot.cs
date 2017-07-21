@@ -11,6 +11,7 @@ public class ItemSlot : MonoBehaviour {
     private Item item;
 
 	private static float timeMark = 0.0f;
+	private static float timeMarkDelta = 0.1f;
     // Use this for initialization
     void Start () {
         
@@ -46,7 +47,7 @@ public class ItemSlot : MonoBehaviour {
     {
 		if (Event.current.button == 1 && isMouseCurrentOver && !isDropping)
         {
-			if(Time.time - timeMark < 0.5f) {
+			if(Time.time - timeMark < timeMarkDelta) {
 				return;
 			}
 

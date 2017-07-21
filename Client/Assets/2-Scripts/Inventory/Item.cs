@@ -12,6 +12,8 @@ public class Item : NetworkBehaviour {
     public GameObject itemSlot = null;
 
     private bool isIconize;
+	private static float timeMark = 0.0f;
+	private static float timeMarkDelta = 0.1f;
 
     // Use this for initialization
     void Start () {
@@ -36,6 +38,10 @@ public class Item : NetworkBehaviour {
 
     private void PickItem()
     {
+		if(Time.time - timeMark < timeMarkDelta) {
+			return;
+		}
+
         PlayerCommand playerCommand = DataMaster.GamePlayer.GetComponent<PlayerCommand>();
         playerCommand.CmdPickItem(netId);
 
